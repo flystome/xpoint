@@ -1,0 +1,13 @@
+<!--pages/share/share.wxml-->
+<view class='container'>
+  <view class='topCorner'></view>
+  <view class='user'>
+    <image class='photo' src="{{userInfo.avatarUrl}}"></image>
+    <text>{{userInfo.nickName}}</text>
+  </view>
+  <view class='content'>  
+    <text>恭喜发财，大吉大利</text>
+    <button open-type="share">转发到好友或群聊</button>
+    <text class='goHome' bindtap='goHome' >回到首页</text>
+  </view>
+</view>

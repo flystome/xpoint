@@ -1,0 +1,38 @@
+<!--pages/history/history.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view class='container'>
+  <!-- <view class='banner'>
+    <view class='name'>总积分</view>
+    <view class='number'>{{total}} <text>{{filter.upper(currency)}}</text>
+    </view>
+  </view> -->
+
+  <scroll-view class='detail'>
+    <view wx:for="{{shoppings}}" wx:key="timestamp" class='item'>
+      <view class='shop'>{{item.product_name}}</view>
+      <view class='bd' bindtap='goDetail' data-item="{{item}}">
+        <view class='lt' wx:if="{{item.business_type == 'envelope'}}">
+          <image src='img/red.png'></image>
+          <text class='title'>积分红包</text>
+          <text class='time'>{{filter.formatTime(item.timestamp)}}</text>
+        </view>
+        <view class='lt' wx:elif="{{item.business_type == 'receive_score' ||item.business_type == 'receive_score_commission'}}">
+          <image src='img/qr.png'></image>
+          <text class='title'>积分</text>
+          <text class='time'>{{filter.formatTime(item.timestamp)}}</text>
+        </view>
+        <view class='lt' wx:elif="{{item.business_type == 'vns_order'}}">
+          <image src='img/coinshop.png'></image>
+          <text class='title'>积分兑换</text>
+          <text class='time'>{{filter.formatTime(item.timestamp)}}</text>
+        </view>
+        <view class='lt' wx:else="{{item.business_type == 'vns_user_bind'}}">
+          <image src='img/transfer.png'></image>
+          <text class='title'>转账</text>
+          <text class='time'>{{filter.formatTime(item.timestamp)}}</text>
+        </view>
+        <text class="points {{item.change>0 ? 'red': ''}}">{{item.change>0 ? "+": ""}}{{item.change}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

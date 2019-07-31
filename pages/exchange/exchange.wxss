@@ -1,0 +1,266 @@
+/* pages/exchange/exchange.wxss */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: #EAEAEA;
+  display: block;
+  position: relative;
+}
+.header {
+  background: #ffffff;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+}
+.header>view {
+  color: #5E6A88;
+  font-size: 32rpx;
+  float: left;
+  width: 168rpx;
+  text-align: center;
+}
+.header view.cur text {
+  display: inline-block;
+  padding: 0 10rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  padding-top: 8rpx;
+  color: #212A42;
+  font-size: 32rpx;
+  border-bottom: 8rpx solid #0BBD89;
+}
+.header .checkbox {
+  float: right;
+  color: #5E6A88;
+  font-size: 32rpx;
+  text-transform: capitalize;
+}
+.checkbox image {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 28rpx;
+  vertical-align:-12rpx;
+  margin-right: 10rpx;
+}
+.checkbox .icon {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right:6px solid transparent;
+  border-top: 8px solid #5E6A88;
+  margin-left: 8rpx;
+}
+.shopList {
+  /* display: flex; */
+  /* flex-flow: row wrap; */
+  width: 100%;
+  /* justify-content: space-evenly;
+  align-items: flex-start;
+  align-content: flex-start; */
+}
+.shopList .shop {
+  width: 47%;
+  float: left;
+  margin-left: 2%;
+  height: 372rpx;
+  background: #ffffff;
+  margin-top: 20rpx;
+  border-radius: 12rpx;  
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+.shop image {
+  width: 100%;
+  height: 190rpx;
+
+}
+.info {
+  display: flex;
+  align-items: center;
+  margin-top: 16rpx;
+  border-top: 1px solid #EAEAEA;
+  padding: 20rpx 0 16rpx;
+  height: 36rpx;
+}
+.info text {
+  flex: 1;
+  color: #212A42;
+  font-size: 28rpx;
+}
+.info button {
+  background: #0BBD89;
+  width: 68rpx;
+  height: 36rpx;
+  border-radius: 18rpx;
+  color: #ffffff;
+  font-size: 24rpx;
+  line-height: 36rpx;
+  text-align: center;
+  padding: 0;
+}
+.price {
+  height: 38rpx;
+  line-height: 38rpx;
+  font-size: 28rpx;
+  color: #212A42;
+}
+.price .unit {
+  color: #5E6A88;
+  font-size: 24rpx;
+  margin-left: 8rpx;
+  text-transform: capitalize;
+}
+.dialog {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.dialog .mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+}
+.dialog .change {
+  position: absolute;
+  top: 166rpx;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 166rpx);
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  background: #ffffff;
+  border-radius: 16rpx 16rpx 0 0;
+  z-index: 12;
+}
+.change .hd {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #5E6A88;
+}
+.change .hd image {
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin: 24rpx 0;
+}
+.content {
+  margin-top: 108rpx;
+  padding-left: 160rpx;
+  height: 166rpx;
+  
+}
+.content>image {
+  width: 136rpx;
+  height: 136rpx;
+  border-radius: 68rpx;
+  float: left;
+  margin-left: -160rpx;
+}
+.content .name {
+  font-size: 32rpx;
+  line-height: 45rpx;
+  color: #212A42;
+  display: block;
+  margin-bottom: 12rpx;
+}
+.content .desc {
+  font-size: 24rpx;
+  line-height: 32rpx;
+  color: #5E6A88;
+}
+.number {
+  font-size: 32rpx;
+  color: #212A42;
+  padding-bottom: 24rpx;
+  border-bottom: 1px solid #ECECEC;
+  display: flex;
+}
+.number .nums {
+  flex: 1;
+}
+.number .nums .desc {
+  font-size: 24rpx;
+  color: #5E6A88;
+}
+.number .action {
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.number .action image {
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: -4rpx;
+}
+.number .num {
+  display: inline-block;
+  width: 72rpx;
+  text-align: center;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 32rpx;
+  color: #000000;
+}
+.dialog hr {
+  height: 1px;
+  width: 100%;
+  background: #ECECEC;
+  margin: 24rpx 0 32rpx;
+}
+.total {
+  padding: 32rpx 0 0;
+  display: flex;
+  height: 56rpx;
+  line-height: 56rpx;
+  font-size: 40rpx;
+  color: #212A42;
+}
+.total view {
+  flex: 1;
+  font-size: 32rpx;
+  text-transform: capitalize;
+  height: 56rpx;
+  line-height: 56rpx;
+}
+.total view image {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 28rpx;
+  margin-right: 8rpx;
+  vertical-align: -14rpx;
+}
+.confirm {
+  position: absolute;
+  bottom: 156rpx;
+  left: 20%;
+  width: 60%;
+  background: #0BBD89;
+  height: 88rpx;
+  border-radius: 44rpx;
+  color: #ffffff;
+  font-size: 36rpx;
+}
+.picker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300rpx;
+  text-align: center;
+  text-transform: uppercase;
+}
+picker-view {
+  width: 100%;
+  height: 100%;
+}
+.picker view {
+  width: 100%;
+}

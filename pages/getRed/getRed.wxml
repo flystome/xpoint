@@ -1,0 +1,38 @@
+<!--pages/getRed/getRed.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view class='container'>
+  <image src='img/purse-up.png' class="topCorner {{hasGet? 'hasGet' : ''}}"></image>
+  <view class="user {{hasGet? 'user1' : ''}}">
+    <image class="photo" src="{{envelope.avatar}}"></image>
+    <text>{{envelope.nickname}}</text>
+    <!-- <text>{{envelope_id}}</text> -->
+  </view>
+  <view class="view1 view {{hasGet ? 'goDown': ''}}">
+    <image class="bg" src='img/purse-down.png'></image>
+    <view class='content'>
+      <text>{{desc}}</text>
+      <button bindtap='openRed'>{{button}}</button>
+    </view> 
+  </view>
+  <view>
+    <view class='view2'>
+      <text class='from'>来自{{envelope.nickname}}的{{filter.upper(envelope.currency)}}红包</text>
+      <text class='volume'>{{open_log.volume}}</text>
+      <view class='goHome' bindtap='goHome'>
+        <text>回首页查询余额</text>
+        <image src='img/forward.png'></image>
+      </view>
+      <scroll-view class='redList'>
+        <text class='total'>已领取{{redData.length}}/{{envelope.share}}, 共{{usedVolume}}/{{envelope.volume}}{{filter.upper(envelope.currency)}}</text>
+        <view class='redItem' wx:for="{{redData}}" wx:key='index'>
+          <image src='{{item.avatar}}'></image>
+          <text class='name'>{{item.nickname}}</text>
+          <view class='right'>
+            <text class='vol'>{{item.volume}}</text>
+            <text class='time'>{{filter.formatTime(item.create_at, 2)}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

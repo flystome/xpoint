@@ -1,0 +1,30 @@
+var formatTime = function(time, flag) {
+  var date = getDate(parseInt(time)*1000)
+  console.log(date, 1)
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  var second = date.getSeconds()
+  if (!flag || flag == 1) {
+    return [month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  } else {
+    return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  } 
+}
+
+var formatNumber = function (n) {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+
+var upper = function (text) {
+  var str = text || ""
+  return str.toUpperCase()
+}
+
+module.exports = {
+  formatTime: formatTime,
+  upper: upper
+}

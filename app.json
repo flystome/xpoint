@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/exchange/exchange",
+    "pages/index/index",
+    "pages/history/history",
+    "pages/generate/generate",
+    "pages/getRed/getRed",
+    "pages/share/share",
+    "pages/redList/redList",
+    "pages/login/login",
+    "pages/earnPoint/earnPoint",
+    
+    "pages/loginApp/loginApp"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#373b4c",
+    "navigationBarTitleText": "Mypoint",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

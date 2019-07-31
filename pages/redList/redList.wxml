@@ -1,0 +1,26 @@
+<!--pages/redList/redList.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view class='container'>
+  <view class='chooseWay'>
+    <text class="{{isSend ? 'cur' : ''}}" data-bool='0' bindtap="chooseWay">发出的</text>
+    <text class="{{!isSend ? 'cur' : ''}}" data-bool='1' bindtap="chooseWay">收到的</text>
+  </view>
+  <view class='sends' wx:if="{{isSend}}">
+    <view wx:for="{{sendList}}" wx:key="">
+      <text></text>
+      <text></text>
+    </view>
+  </view>
+  <view class='receives' wx:else>
+    <view wx:for="{{sendList}}" wx:key="">
+      <text></text>
+      <text></text>
+    </view>
+  </view>
+  <button bindtap='showList'>我要发红包</button>
+  <picker-view wx:if="{{showPick}}" class='picker' indicator-style="height: 50px;" value="{{value}}" bindchange="pickChange" bindpickend="goRed">
+    <picker-view-column>
+      <view wx:for="{{assets}}" wx:key="currency">{{filter.upper(item.currency)}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>

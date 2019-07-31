@@ -1,0 +1,44 @@
+/* pages/redList/redList.wxss */
+.container {
+  background: #f2f2f2;
+  padding: 0;
+  min-height: 100vh;
+  display: block;
+  position: relative;
+}
+.chooseWay {
+  width: 100%;
+  display: flex;
+  font-size: 32rpx;
+}
+.chooseWay text {
+  flex: 1;
+  text-align: center;
+  background: #ffffff;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.chooseWay text.cur {
+  color: #ffb02c;
+  border-bottom: 2px solid #ffb02c;
+}
+.chooseWay text:first-child {
+  border-right: 1px solid #f2f2f2;
+}
+button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0;
+}
+.picker {
+  position: absolute;
+  bottom: 0;
+  width: 100%; 
+  height:200px;
+  z-index: 10;
+}
+.picker view {
+  line-height: 50px;
+  text-align: center;
+}

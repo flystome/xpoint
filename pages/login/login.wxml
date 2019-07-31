@@ -1,0 +1,12 @@
+<!--pages/login/login.wxml-->
+<view class='container'>
+  <view class='banner'>
+    <image src='img/logo.png'></image>
+    <text>Mypoint</text>
+  </view>
+  <view class='info'>
+    <text class='text1'>申请获得以下权限</text>
+    <text class='text2'>获取您的公开信息(呢称，头像等)</text>
+  </view>
+  <button class='getPoint' open-type='getUserInfo' bindgetuserinfo="getUserInfo">授权登录</button>
+</view>

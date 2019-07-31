@@ -1,0 +1,41 @@
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view class='container'>
+  <view class='banner'>
+    <view class='pic'>
+      <!-- <image src='img/red.png' class='red' bindtap='showList'></image> -->
+      <image wx:if='{{!bound}}' src='img/bind.png' class='bindApp' bindtap='bindApp'></image>
+    </view>
+    <view class='photo'>
+      <image src="{{userInfo.avatarUrl}}"></image>
+      <text>{{userInfo.nickName}}</text>
+    </view>
+    <view class='scores' bindtap='exchange'>
+      <image src='img/frame.png'></image>
+      <text>积分兑换</text>
+    </view>
+    <view class='name'>账户总积分</view>
+    <view class='number'>{{total}} <text>VNS</text></view>
+  </view>
+  <scroll-view class='detail'>
+    <view class='noData list' wx:if="{{!assets.length}}">
+      <text>您还未领取积分</text>
+    </view>
+    <view class='list' wx:for="{{assets}}" wx:key="coin">
+      <view class='content'>
+        <image src='{{item.logo}}'></image>
+        <text class="coin">{{filter.upper(item.currency)}}</text>
+        <text class='points'>{{item.total}}</text>
+      </view>
+      <view class='links'>
+        <view bindtap='goDetail' capture-catch='goDetail' data-id='{{item.currency}}'>
+          <image src='img/history.png'></image>
+          <text>收发历史</text>
+        </view>
+        <view catchtap='goRed' capture-catch='goRed' data-id="{{item.currency}}" data-total="{{item.total}}">
+          <image src='img/purse.png'></image>
+          <text>发红包</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

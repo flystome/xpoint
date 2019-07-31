@@ -1,0 +1,66 @@
+<!--pages/exchange/exchange.wxml-->
+<view class='container'>
+  <view class='header'>
+    <view class='checkbox' bindtap='showChoose' capture-catch='showChoose' >
+      <image wx:if="{{!!curData.logo}}" src='{{curData.logo}}'></image>
+      <text>{{curData.currency}}</text>
+      <view class='icon'></view>
+    </view>
+    <view class='cur'><text>商品</text></view>
+    <view><text>兑换历史</text></view>
+  </view>
+  <scroll-view class='shopList'>
+    <view class='shop' wx:for="{{products}}" wx:key="id" >
+      <image src="{{item.logo}}"></image>
+      <view class='info'>
+        <text>{{item.title}}</text>
+        <button data-item="{{item}}" bindtap='showInfo'>兑换</button>
+      </view>
+      <view class='price'>
+        <text class='num'>{{item.quantity}}</text>
+        <text class='unit'>{{item.currency}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='picker' wx:if="{{showChoose}}">
+    <picker-view indicator-style="height: 50px;" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{currencies}}" wx:key="{{item[0]}}" style="line-height: 50px">{{item.currency}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+  <view class='dialog' wx:if="{{showDialog}}">
+    <view class='mask'></view>
+    <view class='change'>
+      <view class='hd'>
+        <image bindtap='closeDialog' src='img/close.png'></image>
+        <text>订单详情</text>
+      </view>
+      <view class='content'>
+        <image src="{{product.logo}}"></image>
+        <text class='name'>{{product.title}}</text>
+        <text class='desc'>{{product.desc}}高山冰雪溶水灌植，原生态无污染，适合老幼儿童孕妇。</text> 
+      </view>
+      <view class='number'>
+        <view class='nums'>
+          <text>兑换数量</text>
+          <text class='desc'>(库存{{product.quantity}}份)</text>
+        </view>
+        <view class='action'>
+          <image src='img/sub.png' bindtap='changeNum' data-step="-1"></image>
+          <text class='num'>{{num}}</text>
+          <image src='img/add.png' bindtap='changeNum' data-step="1"></image>
+        </view>
+      </view>
+      <hr />
+      <view class='total'>
+        <view>
+          <image src='{{diaData.logo}}'></image>
+          <text>{{product.currency}}</text>
+        </view>
+        <text>-{{product.price * num}}</text>
+      </view>
+      <button class='confirm' bindtap='exchange'>确认兑换</button>
+    </view>
+  </view>
+</view>

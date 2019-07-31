@@ -1,0 +1,72 @@
+/* pages/red/red.wxss */
+.container {
+  background: #f2f2f2;
+  padding: 32rpx;
+  min-height: 100vh;
+  display: block;
+}
+.chooseWay {
+  width: 100%;
+  display: flex;
+  font-size: 32rpx;
+}
+.chooseWay text {
+  flex: 1;
+  text-align: center;
+  background: #ffffff;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.chooseWay text.cur {
+  color: #ffb02c;
+  border-bottom: 2px solid #ffb02c;
+}
+.chooseWay text:first-child {
+  border-right: 1px solid #f2f2f2;
+}
+.inputs {
+  width: 100%;
+  height: 100rpx;
+  background: #ffffff;
+  line-height: 100rpx;
+  display: flex;
+  margin-top: 32rpx;
+  padding: 0 16rpx;
+  box-sizing: border-box;
+  border-radius: 4rpx;
+  align-items: center;
+}
+.inputs input {
+  flex: 1;
+  text-align:right;
+  padding-right: 10rpx;
+}
+.inputs input:focus {
+  text-align: right;
+}
+.placeholder {
+  font-size: 24rpx;
+  color: #b7b7b7;
+}
+.inputs text {
+  font-size: 28rpx;
+  color: #181818;
+}
+.desc {
+  margin-top: 24rpx;
+  font-size: 24rpx;
+}
+.desc .asset {
+  color: #ffb02c;
+}
+.last {
+  text-align: center;
+  margin-top: 24rpx;
+  font-size: 40rpx;
+}
+.submit {
+  margin-top: 32rpx;
+  background: #fa5051;
+  color: #ffffff;
+  border: 0;
+}

@@ -1,0 +1,22 @@
+<!--pages/earnPoint/earnPoint.wxml-->
+<view class='container'>
+  <!-- <view>{{id}}</view> -->
+  <!-- <view class='name'>
+    <text class='desc'>商品名称</text>
+    <text class='shoppingInfo'>{{shoppingInfo}}</text>
+  </view> -->
+  <!-- <text>{{id}}</text>
+  <text>{{session}}</text> -->
+  <view class='content'>
+    <text class='points'>{{text1}}{{shoppingPoints}}{{currency}}{{currencyName}}</text>
+    <button class='getPoint' bindtap='getScore'>{{text}}</button>
+  </view>
+  <view class='QrContent'>
+    <image src='img/corner.png' class='topCorner'></image>
+    <view class='Qr'>
+      <!-- <text>保存并识别二维码进群</text> -->
+      <image src='../login/img/logo.png'></image>
+      <!-- <image src='{{qrcode}}' show-menu-by-longpress="{{true}}" data-src="{{qrcode}}" class='qrcode' bindtap="previewImage"></image> -->
+    </view>
+  </view>  
+</view>

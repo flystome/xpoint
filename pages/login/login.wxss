@@ -1,0 +1,40 @@
+/* pages/login/login.wxss */
+.banner {
+  height: 340rpx;
+  width: 100%;
+  background: #373b4c;
+  text-align: center;
+  padding: 70rpx;
+  box-sizing: border-box;
+}
+.banner image {
+  width: 144rpx;
+  height: 144rpx;
+}
+.banner text {
+  display: block;
+  text-align: center;
+  color: #ffffff;
+  font-size: 36rpx;
+}
+.info text {
+  display: block;
+  text-align: center;
+}
+.info .text1 {
+  font-size: 36rpx;
+  color: #000000;
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+}
+.info .text2 {
+  font-size: 28rpx;
+  color: #c0c0c0;
+  padding-bottom: 50rpx;
+}
+button {
+  background: #4d97f7;
+  color: #ffffff;
+  width: 90%;
+  margin: 0 auto;
+}

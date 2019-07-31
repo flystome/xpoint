@@ -1,0 +1,18 @@
+<!--pages/loginApp/loginApp.wxml-->
+<view class='container'>
+  <view class='banner'>
+    <image src='../login/img/logo.png'></image>
+  </view>
+  <form>
+    <view class='account'>
+      <input placeholder='手机号码/邮箱' bindinput="accountChange" placeholder-class='placeholder'></input>
+    </view>
+    <view class='code'>
+      <input placeholder='输入验证码 ' bindinput="codeChange"  placeholder-class='placeholder'></input>
+      <text bindtap='getCode'>{{codeText}}</text>
+    </view>
+    <view>
+      <button bindtap='bindApp' disabled="{{isLoading}}" loading="{{isLoading}}">确定绑定</button>
+    </view>
+  </form>
+</view>

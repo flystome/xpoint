@@ -1,0 +1,57 @@
+/* pages/loginApp/loginApp.wxss */
+.banner {
+  height: 340rpx;
+  width: 100%;
+  background: #373b4c;
+  text-align: center;
+  padding: 70rpx;
+  box-sizing: border-box;
+}
+.banner image {
+  width: 144rpx;
+  height: 144rpx;
+}
+form {
+  width: 100%;
+}
+form view {
+  width: 90%;
+  margin: 10rpx auto;
+  display: flex;
+  align-items: center;
+}
+form view input {
+  line-height: 100rpx;
+  align-content: center;
+  flex: 1;
+  padding-left: 10rpx;
+}
+form .account,form .code {
+  height: 100rpx;
+  border-bottom: 1px solid #dadbe0;
+}
+form .code text {
+  background: none;
+  border: none;
+  color: #ff8400;
+  font-size: 28rpx;
+  flex-basis: 200rpx;
+  text-align: right;
+  padding-right: 10rpx; 
+}
+form .code text:hover {
+  color: #f99830;
+}
+form .code button::after {
+  border: none;
+}
+.placeholder {
+  color: #919191;
+  font-size: 28rpx;
+}
+form button {
+  background: #57be6a;
+  margin-top: 54rpx;
+  width: 100%;
+  color: #ffffff;
+}

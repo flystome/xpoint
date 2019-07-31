@@ -1,0 +1,79 @@
+/* pages/earnPoint/earnPoint.wxss */
+.container {
+  background: #440624;
+  width: 100%;
+  height: 100vh;
+}
+.name {
+  padding: 40rpx 20rpx 0;
+  color: #ffffff;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 120rpx;
+  flex-basis: 120rpx;
+  flex-grow: 0;
+}
+
+.name text {
+  display: block;
+  text-align: left;
+}
+.name .desc {
+  font-size: 24rpx;
+}
+.name .shoppingInfo {
+  font-size: 32rpx;
+}
+.content {
+  width: 710rpx;
+  margin: 20rpx auto 0;
+  background: #faefa3;
+  height: 320rpx;
+  flex-basis: 320rpx;
+  text-align: center;
+  flex-grow: 0;
+}
+.content button {
+  background: #b6001f;
+  width: 200rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+}
+.points {
+  display: block;
+  padding: 80rpx 0 60rpx;
+  color: #b6001f;
+}
+.QrContent {
+  width: 100%;
+  background: #b6001f;
+  flex-grow: 1;
+  padding: 0;
+  text-align: center;
+  color: #faefa3;
+}
+.Qr {
+  height: 368rpx;
+  color: #faefa3;
+  font-size: 30rpx;
+  padding-top: 160rpx;
+} 
+.Qr text {
+  display: block;
+  line-height: 48rpx;
+}
+.Qr image {
+  width: 320rpx;
+  height: 320rpx;
+  margin-top: 20rpx;
+  background: #ffffff;
+}
+.topCorner {
+  display: block;
+  width: 100%;
+  height: 88rpx;
+  margin-top: -86rpx;
+}
