@@ -23,8 +23,14 @@ Page({
   },
 
   exchange() {
-    wx.navigateTo({
-      url: `../exchange/exchange`
+    // wx.navigateTo({
+    //   url: `../exchange/exchange`
+    // })
+    wx.showModal({
+      title: '',
+      content: '敬请期待！',
+      showCancel: false,
+      confirmText: '确定'
     })
   },
 

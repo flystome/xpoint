@@ -37,10 +37,8 @@ Page({
       }
     }
     this.setData({
-      usedVolume : total
+      usedVolume: total.toFixed(2)
     })
-
-    console.log(this)
   },
 
   openRed: function () {
