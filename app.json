@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/exchange/exchange",
     "pages/index/index",
     "pages/history/history",
     "pages/generate/generate",
@@ -9,9 +8,8 @@
     "pages/redList/redList",
     "pages/login/login",
     "pages/earnPoint/earnPoint",
-    
-    "pages/loginApp/loginApp"
-    
+    "pages/exchange/exchange",
+    "pages/loginApp/loginApp"    
   ],
   "window": {
     "backgroundTextStyle": "light",

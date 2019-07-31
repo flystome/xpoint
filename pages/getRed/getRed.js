@@ -27,11 +27,13 @@ Page({
     }
   },
 
-  getUsedVolume: function(e) {
+  getUsedVolume: function(redData) {
+    
     var total = 0;
-    if(e.redData) {
-      for(var key in e.redData) {
-        total += e.redData[key].volume;
+    if(redData) {
+      for(var key in redData) {        
+        console.log("asdfasdf", redData[key].volume, total)
+        total = total + parseFloat(redData[key].volume)
       }
     }
     this.setData({
@@ -82,7 +84,7 @@ Page({
             redData: details,
             open_log: data.open_log,            
           })
-          this.getUsedVolume()
+          self.getUsedVolume(details)
         } else if (data.code == 1003) {
           self.setData({
             desc: "红包已抢完",
@@ -131,7 +133,7 @@ Page({
               redData: data.details,
               open_log: data.open_log,
             })
-            this.getUsedVolume()
+            self.getUsedVolume(data.details)
             return
           }
           if (data.take_part) {
@@ -141,7 +143,7 @@ Page({
               open_log: data.open_log,
               hasGet: true
             })
-            this.getUsedVolume()
+            self.getUsedVolume(data.details)
           } else {
             self.setData({
               envelope: data.envelope

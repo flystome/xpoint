@@ -38,9 +38,7 @@ App({
           wx.getUserInfo({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
-              console.log(res.userInfo)
               this.globalData.userInfo = res.userInfo
-
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
@@ -56,6 +54,7 @@ App({
       }
     })
   },
+  
   watch: function (method) {
     var obj = this.globalData;
     Object.defineProperty(obj, "session", {

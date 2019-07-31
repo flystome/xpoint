@@ -91,7 +91,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (options) {
-    if (this.data.id && this.data.id != options.id) {
+    if (this.data.id && options && this.data.id != options.id) {
       this.setData({
         shoppings: []
       })
