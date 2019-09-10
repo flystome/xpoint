@@ -16,8 +16,9 @@
   color: #5E6A88;
   font-size: 32rpx;
   float: left;
-  width: 168rpx;
+  width: 170rpx;
   text-align: center;
+  margin-right: 10rpx;
 }
 .header view.cur text {
   display: inline-block;

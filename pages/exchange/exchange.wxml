@@ -1,9 +1,10 @@
 <!--pages/exchange/exchange.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
 <view class='container'>
   <view class='header'>
     <view class='checkbox' bindtap='showChoose' capture-catch='showChoose' >
       <image wx:if="{{!!curData.logo}}" src='{{curData.logo}}'></image>
-      <text>{{curData.currency}}</text>
+      <text>{{filter.upper(curData.currency)}}</text>
       <view class='icon'></view>
     </view>
     <view class='cur'><text>商品</text></view>
@@ -17,8 +18,8 @@
         <button data-item="{{item}}" bindtap='showInfo'>兑换</button>
       </view>
       <view class='price'>
-        <text class='num'>{{item.price}}</text>
-        <text class='unit'>{{item.currency}}</text>
+        <text class='num'>{{filter.formatPrecise(item.price)}}</text>
+        <text class='unit'>{{filter.upper(item.currency)}}</text>
       </view>
     </view>
   </scroll-view>
@@ -58,7 +59,7 @@
           <image src='{{diaData.logo}}'></image>
           <text>{{product.currency}}</text>
         </view>
-        <text>-{{product.price * num}}</text>
+        <text>-{{filter.formatPrecise(product.price * num)}}</text>
       </view>
       <view class="address">
         <view class="hasAddress" wx:if="{{showAddress}}">
