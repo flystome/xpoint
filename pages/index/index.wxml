@@ -18,7 +18,7 @@
       <text>积分兑换</text>
     </view>
     <view class='name'>账户总积分</view>
-    <view class='number'>{{userInfo.nickName ? total : 0 }} <text>VNS</text></view>
+    <view class='number'>{{userInfo.nickName ? filter.formatPrecise(total) : 0 }} <text>VNS</text></view>
   </view>
   <scroll-view class='detail' wx:if="{{userInfo.nickName}}">
     <view class='noData list' wx:if="{{!assets.length}}">
@@ -28,7 +28,7 @@
       <view class='content'>
         <image src='{{item.logo}}'></image>
         <text class="coin">{{filter.upper(item.currency)}}</text>
-        <text class='points'>{{item.total}}</text>
+        <text class='points'>{{filter.formatPrecise(item.total)}}</text>
       </view>
       <view class='links'>
         <view bindtap='goDetail' capture-catch='goDetail' data-id='{{item.currency}}'>

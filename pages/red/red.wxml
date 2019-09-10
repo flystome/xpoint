@@ -22,7 +22,7 @@
   </view>
 
   <view class='desc'>
-    <text>当前账号余额：<text class='asset'>{{asset}} {{filter.upper(id)}}</text></text>
+    <text>当前账号余额：<text class='asset'>{{filter.formatPrecise(asset)}} {{filter.upper(id)}}</text></text>
   </view>
 
   <view class='last'>{{redVal}} {{filter.upper(id)}}</view>
