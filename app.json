@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/changeHis/changeHis",
     "pages/history/history",
     "pages/generate/generate",
     "pages/getRed/getRed",
@@ -9,12 +10,13 @@
     "pages/login/login",
     "pages/earnPoint/earnPoint",
     "pages/exchange/exchange",
-    "pages/loginApp/loginApp"    
+    "pages/sucChange/sucChange",
+    "pages/loginApp/loginApp"  
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#373b4c",
-    "navigationBarTitleText": "Mypoint",
+    "navigationBarTitleText": "Xpoint",
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json"

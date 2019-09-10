@@ -9,8 +9,12 @@
     </view>
     <view class='code'>
       <input placeholder='输入验证码 ' bindinput="codeChange"  placeholder-class='placeholder'></input>
-      <text bindtap='getCode'>{{codeText}}</text>
+      <text bindtap='getCode' capture-catch='getCode'>{{codeText}}</text>
     </view>
+    <view class='password'>
+      <input placeholder='设置密码' bindinput="passwordChange"  placeholder-class='placeholder'></input>
+    </view>
+    <view class="tip">*如果有Xpay账号，请输入Xpay密码，否则将会重置Xpay的密码</view>
     <view>
       <button bindtap='bindApp' disabled="{{isLoading}}" loading="{{isLoading}}">确定绑定</button>
     </view>

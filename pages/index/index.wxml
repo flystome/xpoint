@@ -5,18 +5,22 @@
       <!-- <image src='img/red.png' class='red' bindtap='showList'></image> -->
       <image wx:if='{{!bound}}' src='img/bind.png' class='bindApp' bindtap='bindApp'></image>
     </view>
-    <view class='photo'>
+    <view class='photo' wx:if="{{userInfo.nickName}}">
       <image src="{{userInfo.avatarUrl}}"></image>
       <text>{{userInfo.nickName}}</text>
+    </view>
+    <view class="photo photo1" wx:else bindtap="goLogin" capture-catch='goLogin'>
+      <view></view>
+      <text>点击授权</text>
     </view>
     <view class='scores' bindtap='exchange'>
       <image src='img/frame.png'></image>
       <text>积分兑换</text>
     </view>
     <view class='name'>账户总积分</view>
-    <view class='number'>{{total}} <text>VNS</text></view>
+    <view class='number'>{{userInfo.nickName ? total : 0 }} <text>VNS</text></view>
   </view>
-  <scroll-view class='detail'>
+  <scroll-view class='detail' wx:if="{{userInfo.nickName}}">
     <view class='noData list' wx:if="{{!assets.length}}">
       <text>您还未领取积分</text>
     </view>
@@ -31,9 +35,13 @@
           <image src='img/history.png'></image>
           <text>收发历史</text>
         </view>
-        <view catchtap='goRed' capture-catch='goRed' data-id="{{item.currency}}" data-total="{{item.total}}">
+        <view class="goRed" catchtap='goRed' capture-catch='goRed' data-id="{{item.currency}}" data-total="{{item.total}}">
           <image src='img/purse.png'></image>
           <text>发红包</text>
+        </view>
+        <view bindtap='exchange1' capture-catch='goRed'  data-id="{{item.currency}}">
+          <image src='img/frame.png'></image>
+          <text>积分兑换</text>
         </view>
       </view>
     </view>

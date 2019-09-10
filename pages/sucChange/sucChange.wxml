@@ -1,0 +1,23 @@
+<!--pages/sucChange/sucChange.wxml-->
+<view class='container'>
+  <view class='sucInfo'>
+    <image src='img/suc.png'></image>
+    <text>兑换成功</text>
+  </view>
+  <view class='content'>
+    <image src="{{product.productImg}}"></image>
+    <view>
+      <view class='name'><text>x1</text>{{product.title}}</view>
+      <text class='desc'>{{product.desc}}</text> 
+    </view>
+  </view>
+  <view class='total'>
+    <view>
+      <image src='{{product.logo}}'></image>
+      <text>{{product.currency}}</text>
+    </view>
+    <text>-{{product.total}}</text>
+  </view>
+  <button class='back' bindtap='goBack'>返回商城</button>
+  <text class='go' bindtap='goChangeHis'>查看兑换历史</text>
+</view>

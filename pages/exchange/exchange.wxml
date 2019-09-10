@@ -7,23 +7,23 @@
       <view class='icon'></view>
     </view>
     <view class='cur'><text>商品</text></view>
-    <view><text>兑换历史</text></view>
+    <view bindtap="goHis"><text>兑换历史</text></view>
   </view>
   <scroll-view class='shopList'>
     <view class='shop' wx:for="{{products}}" wx:key="id" >
-      <image src="{{item.logo}}"></image>
+      <image src="{{item.logo}}" bindtap="showPic" data-item="{{item}}"></image>
       <view class='info'>
         <text>{{item.title}}</text>
         <button data-item="{{item}}" bindtap='showInfo'>兑换</button>
       </view>
       <view class='price'>
-        <text class='num'>{{item.quantity}}</text>
+        <text class='num'>{{item.price}}</text>
         <text class='unit'>{{item.currency}}</text>
       </view>
     </view>
   </scroll-view>
   <view class='picker' wx:if="{{showChoose}}">
-    <picker-view indicator-style="height: 50px;" bindchange="bindChange">
+    <picker-view indicator-style="height: 50px;" bindchange="bindChange" value="{{value}}">
       <picker-view-column>
         <view wx:for="{{currencies}}" wx:key="{{item[0]}}" style="line-height: 50px">{{item.currency}}</view>
       </picker-view-column>
@@ -33,13 +33,13 @@
     <view class='mask'></view>
     <view class='change'>
       <view class='hd'>
-        <image bindtap='closeDialog' src='img/close.png'></image>
+        <image bindtap='closeDialog' class="closeDialog" src='img/close.png'></image>
         <text>订单详情</text>
       </view>
       <view class='content'>
         <image src="{{product.logo}}"></image>
         <text class='name'>{{product.title}}</text>
-        <text class='desc'>{{product.desc}}高山冰雪溶水灌植，原生态无污染，适合老幼儿童孕妇。</text> 
+        <text class='desc'>{{product.desc}}</text> 
       </view>
       <view class='number'>
         <view class='nums'>
@@ -60,7 +60,33 @@
         </view>
         <text>-{{product.price * num}}</text>
       </view>
+      <view class="address">
+        <view class="hasAddress" wx:if="{{showAddress}}">
+          <text>{{address}} {{name}} {{phone}}</text>
+          <button bindtap="editAddress">{{addressText}}</button>
+        </view>
+        <form class="editAddress" wx:else>
+          <view>
+            <input placeholder='收货地址' bindinput="addressChange" value="{{address}}" placeholder-class='placeholder'></input>
+          </view>
+          <view>
+            <input placeholder='收件人' bindinput="nameChange" value="{{name}}" placeholder-class='placeholder'></input>
+          </view>
+          <view>
+            <input placeholder='联系电话' type="number" value="{{phone}}" bindinput="phoneChange" placeholder-class='placeholder'></input>
+          </view>
+        </form>
+      </view>
       <button class='confirm' bindtap='exchange'>确认兑换</button>
+    </view>
+  </view>
+  <view class="dialog" wx:if="{{curPic}}"bindtap='closeDialog1' catchtap="closeDialog1">
+    <view class='mask'></view>
+    <view class="showPic">
+      <image class="closeDialog" src='img/close.png'></image>
+      <image class="pic" src="{{curPic.logo}}"></image>
+      <text class='name'>{{curPic.title}}</text>
+      <text class='desc'>{{curPic.desc}}</text>
     </view>
   </view>
 </view>

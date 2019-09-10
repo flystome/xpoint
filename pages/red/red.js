@@ -8,9 +8,9 @@ Page({
    */
   data: {
     id: "",
-    total: 0,
-    perVal: 0,
-    num: 0,
+    total: '',
+    perVal: '',
+    num: '',
     isEqual: false,
     redId: 0,
     nickname: "",
@@ -31,35 +31,55 @@ Page({
   },
 
   totalChange: function(e) {
+    let val = e.detail.value
+    let reg = /^\d+(\.\d{1,2})?$/
+    let reg2 = /^\d+\.?$/
+    if (/^0{1,}\d/.test(val)) {
+      val = parseInt(val)
+    }
+    if (!reg.test(val) && !reg2.test(val)) { 
+      val = parseInt(val * 100) / 100
+    }
     this.setData({
-      total: e.detail.value,
-      perVal: 0,
-      redVal: e.detail.value
+      total: val,
+      perVal: '',
+      redVal: val
     })
   },
 
   perValChange: function (e) {
     let num = this.data.num
-    var redVal = 0
+    var redVal = ''
+    let val = e.detail.value
+    let reg = /^\d+(\.\d{1,2})?$/
+    let reg2 = /^\d+\.?$/
+    if (/^0{1,}\d/.test(val)) {
+      val = parseInt(val)
+    }
+    if (!reg.test(val) && !reg2.test(val)) {
+      val = parseInt(val * 100) / 100
+    }
+    
     if (num && !isNaN(num)) {
-      redVal = +e.detail.value * +num
+      redVal = +val * +num
     }
     this.setData({
-      perVal: e.detail.value,
+      perVal: val,
       redVal: redVal
     })
   },
 
   numChange: function (e) {
     let perVal = this.data.perVal
-    var redVal = 0
+    var redVal = ''
+    let val = parseInt(e.detail.value)
     if (perVal && !isNaN(perVal)) {
-      redVal = +e.detail.value * +perVal
+      redVal = val * +perVal
     } else {
       redVal = this.data.total
     }
     this.setData({
-      num: e.detail.value,
+      num: val,
       redVal: redVal
     })
   },

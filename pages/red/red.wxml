@@ -7,17 +7,17 @@
   </view>
   <view class='total inputs' wx:if="{{!isEqual}}">
     <text>总金额</text>
-    <input type='digit' placeholder='输入红包总金额' bindinput="totalChange" placeholder-class='placeholder'></input>
+    <input type='digit' value="{{total}}" maxlength="16" placeholder='输入红包总金额' bindinput="totalChange" placeholder-class='placeholder'></input>
     <text>{{filter.upper(id)}}</text>
   </view>
   <view class='per inputs' wx:else>
     <text>单个金额</text>
-    <input type='digit' placeholder='输入单个红包金额' bindinput="perValChange" placeholder-class='placeholder'></input>
+    <input type='digit' value="{{perVal}}" maxlength="12" placeholder='输入单个红包金额' bindinput="perValChange" placeholder-class='placeholder'></input>
     <text>{{filter.upper(id)}}</text>
   </view>
   <view class='num inputs'>
     <text>红包个数</text>
-    <input type='digit' placeholder='输入红包个数' bindinput="numChange" placeholder-class='placeholder'></input>
+    <input type='number' value="{{num}}" maxlength="6" placeholder='输入红包个数' bindinput="numChange" placeholder-class='placeholder'></input>
     <text>个</text>
   </view>
 

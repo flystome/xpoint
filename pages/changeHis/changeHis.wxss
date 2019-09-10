@@ -1,0 +1,163 @@
+/* pages/changeHis/changeHis.wxss */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: #EAEAEA;
+  display: block;
+  position: relative;
+}
+.header {
+  background: #ffffff;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+}
+.header>view {
+  color: #5E6A88;
+  font-size: 32rpx;
+  float: left;
+  width: 168rpx;
+  text-align: center;
+}
+.header view.cur text {
+  display: inline-block;
+  padding: 0 10rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  padding-top: 8rpx;
+  color: #212A42;
+  font-size: 32rpx;
+  border-bottom: 8rpx solid #0BBD89;
+}
+.header .checkbox {
+  float: right;
+  color: #5E6A88;
+  font-size: 32rpx;
+  text-transform: capitalize;
+}
+.checkbox image {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 28rpx;
+  vertical-align:-12rpx;
+  margin-right: 10rpx;
+}
+.checkbox .icon {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right:6px solid transparent;
+  border-top: 8px solid #5E6A88;
+  margin-left: 8rpx;
+}
+.shopList {
+  margin-top: 24rpx;
+  padding: 0 34rpx;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+.shop {
+  height: 184rpx;
+  padding: 24rpx 0;
+  display: flex;
+  border-bottom: 1px solid #ECECEC;
+  box-sizing: border-box;
+}
+.shop image {
+  width: 136rpx;
+  height: 136rpx;
+  margin-right: 24rpx;
+}
+.shop>view {
+  flex: 1;
+}
+.shop view view {
+  display: flex;
+  font-size: 28rpx;
+  line-height: 39rpx;
+  color: #212A42;
+  margin-bottom: 12rpx;
+}
+.shop view view.price {
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #5E6A88;
+}
+.shop view view text:first-child {
+  flex: 1;
+}
+.shop view view .time {
+  font-size: 24rpx;
+}
+.price .coin {
+  text-transform: capitalize;
+}
+.picker {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300rpx;
+  text-align: center;
+  text-transform: uppercase;
+  background: #ffffff;
+}
+picker-view {
+  width: 100%;
+  height: 100%;
+}
+.picker view {
+  width: 100%;
+}
+.dialog {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.dialog .mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+}
+.dialog .change {
+  position: absolute;
+  top: 166rpx;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 166rpx);
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  background: #ffffff;
+  border-radius: 16rpx 16rpx 0 0;
+  z-index: 12;
+}
+.change .hd {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #5E6A88;
+}
+.change .hd image {
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin: 24rpx 0;
+}
+.change .shop {
+  border: 0;
+}
+.addressInfo text {
+  display: block;
+  line-height: 39rpx;
+  font-size: 28rpx;
+  margin-bottom: 24rpx;
+  color: #212A42;
+}

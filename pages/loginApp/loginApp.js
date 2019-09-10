@@ -9,9 +9,17 @@ Page({
     codeText: "获取验证码",
     account: '',
     code: '',
-    clock: null,
+    password: '',
     disableCode: false,
     isLoading: false
+  },
+
+  modal: function (title, content) {
+    wx.showModal({
+      title: title,
+      content: content,
+      showCancel: false
+    })
   },
 
   getCode: function () {
@@ -21,11 +29,7 @@ Page({
     let isMobile = /^1[2-9]\d{9}$/.test(this.data.account)
     let isEmail = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(this.data.account)
     if (!isMobile && !isEmail) {
-      wx.showModal({
-        title: '发送短信失败',
-        content: '请输入正确的手机号或邮箱',
-        showCancel: false
-      })
+      this.modal('发送短信失败', '请输入正确的手机号或邮箱')
       return
     }
     var self = this
@@ -33,6 +37,16 @@ Page({
     this.setData({
       disableCode: true
     })
+    let timer = setInterval(function () {
+      if (time <= 0) {
+        timer = null
+      } else {
+        self.setData({
+          codeText: `${time}s`
+        })
+        time--
+      }
+    }, 1000)
     wx.request({
       url: app.globalData.url + '/qpay_vns/user/send_code',
       method: "POST",
@@ -43,42 +57,30 @@ Page({
       success(res) {
         var data = res.data
         if (data.code == 200) {
-          self.data.clock = self.setClock(time)
-        } else if (data.code == 1002) {
-          wx.showModal({
-            title: '发送短信失败',
-            content: '该账号已经被绑定',
-            showCancel: false
+          wx.showToast({
+            title: '发送验证码成功',
           })
+        } else if (data.code == 1002) {
+          self.modal('发送短信失败', '该账号已经被绑定')
+          clearInterval(timer)
           self.clearClock()
         } else if (data.code == 1003) {
-          wx.showModal({
-            title: '发送短信失败',
-            content: '请输入正确的手机号或邮箱',
-            showCancel: false
-          })
-          self.clearClock()
+          self.modal('发送短信失败', '请输入正确的手机号或邮箱')
+          clearInterval(timer)
+          self.clearClock(time)
         } else if (data.code == 1005) {
-          wx.showModal({
-            title: '发送短信失败',
-            content: '短信发送频率太快，请稍后再发',
-            showCancel: false
-          })
+          self.modal('发送短信失败', '短信发送频率太快，请稍后再发')
+          clearInterval(timer)
           self.clearClock()
         } else if (data.code == 1006) {
-          wx.showModal({
-            title: '发送短信失败',
-            content: '手机号已被使用',
-            showCancel: false
-          })
+          self.modal('发送短信失败', '手机号已被使用')
+          clearInterval(timer)
+          self.clearClock()
+        } else {
+          self.modal('发送短信失败', '')
+          clearInterval(timer)
           self.clearClock()
         }
-      },
-      fail(err) {
-        console.error(err)
-        this.setData({
-          disableCode: false
-        })
       },
       complete() {
         wx.hideLoading()
@@ -86,49 +88,32 @@ Page({
     })
   },
 
-  setClock: function(time) {
-    var self = this
-    return setInterval(function () {
-      if (time <= 0) {
-        self.clearClock()
-      } else {
-        self.setData({
-          codeText: `${time}s`
-        })
-        time--
-      }
-    }, 1000)
-  },
-
   clearClock: function(){
     this.setData({
-      clock: null,
       codeText: '重新获取验证码',
       disableCode: false
     })
   },
 
   bindApp: function() {
-    let isMobile = /^1[2-9]\d{9}$/.test(this.data.account)
-    let isEmail = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(this.data.account)
+    let {account, code, password} = this.data
+    let isMobile = /^1[2-9]\d{9}$/.test(account)
+    let isEmail = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(account)
     if (!isMobile && !isEmail) {
-      wx.showModal({
-        title: '绑定账户失败',
-        content: '请输入正确的手机号或邮箱',
-        showCancel: false
-      })
+      this.modal('绑定账户失败', '请输入正确的手机号或邮箱')
       return
     }
-    let isCode = /^\d{6}$/.test(this.data.code)
-    console.log(isCode, this.data.code)
+    let isCode = /^\d{6}$/.test(code)
+    
     if (!isCode) {
-      wx.showModal({
-        title: '绑定账户失败',
-        content: '请输入正确的验证码',
-        showCancel: false
-      })
+      this.modal('绑定账户失败', '请输入正确的验证码')
       return
     }
+    let reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,18}$/
+    if (!(reg.test(password))) {
+      this.modal('绑定账户失败', '请输入8到18位数字、字母组合密码')
+    }
+      
     let self = this
     self.setData({
       isLoading: true
@@ -138,8 +123,9 @@ Page({
       method: "POST",
       data: {
         session: app.globalData.session,
-        account: this.data.account,
-        secret: this.data.code
+        account: account,
+        secret: code,
+        password: password
       },
       success(res) {
         var data = res.data
@@ -159,27 +145,14 @@ Page({
             }
           })
         } else if (data.code == 1002) {
-          wx.showModal({
-            title: '绑定账户失败',
-            content: '该账号已经被绑定',
-            showCancel: false
-          })
+          self.modal('绑定账户失败', '该账号已经被绑定')
         } else if (data.code == 1003) {
-          wx.showModal({
-            title: '绑定账户失败',
-            content: '请输入正确的手机号或邮箱',
-            showCancel: false
-          })
+          self.modal('绑定账户失败', '请输入正确的手机号或邮箱')
         } else if (data.code == 1004) {
-          wx.showModal({
-            title: '绑定账户失败',
-            content: '短信验证码错误',
-            showCancel: false
-          })
+          self.modal('绑定账户失败', '短信验证码错误')
+        } else {
+          self.modal('绑定账户失败')
         }
-      },
-      fail(err) {
-        console.error(err)
       },
       complete() {
         self.clearClock()
@@ -199,6 +172,12 @@ Page({
   codeChange: function (e) {
     this.setData({
       code: e.detail.value
+    })
+  },
+
+  passwordChange: function (e) {
+    this.setData({
+      password: e.detail.value
     })
   },
 

@@ -22,16 +22,22 @@ Page({
     })
   },
 
-  exchange() {
-    // wx.navigateTo({
-    //   url: `../exchange/exchange`
-    // })
-    wx.showModal({
-      title: '',
-      content: '敬请期待！',
-      showCancel: false,
-      confirmText: '确定'
+  goLogin() {
+    wx.navigateTo({
+      url: `../login/login`
     })
+  },
+
+  exchange() {
+    wx.navigateTo({
+      url: `../exchange/exchange`
+    })
+    // wx.showModal({
+    //   title: '',
+    //   content: '敬请期待！',
+    //   showCancel: false,
+    //   confirmText: '确定'
+    // })
   },
 
   showList () {
@@ -53,7 +59,8 @@ Page({
  
   getData () {
     var self = this
-    console.log("getData enter")
+    // console.log("getData enter")
+    console.log(app.globalData, 11)
     wx.request({
       url: app.globalData.url + '/qpay_vns/assets',
       method: "POST",
@@ -73,7 +80,7 @@ Page({
             bound: data.bound
           })
         } else {
-          app.refreshSession()
+          // app.refreshSession()
         }
 
 
@@ -103,6 +110,14 @@ Page({
     })
   },
 
+  exchange1: function (e) {
+    let id = e.currentTarget.dataset.id
+    console.log(e)
+    wx.navigateTo({
+      url: `../exchange/exchange?id=${id}`
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -120,7 +135,7 @@ Page({
       title: '正在加载',
     })
     if (app.globalData.session) {
-      console.log("has session")
+      // console.log("has session")
       this.getData()
     } else {
       app.watch(self.getData)

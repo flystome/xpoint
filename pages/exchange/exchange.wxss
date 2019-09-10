@@ -59,11 +59,11 @@
   align-items: flex-start;
   align-content: flex-start; */
 }
-.shopList .shop {
+.shop {
   width: 47%;
   float: left;
   margin-left: 2%;
-  height: 372rpx;
+  height: 490rpx;
   background: #ffffff;
   margin-top: 20rpx;
   border-radius: 12rpx;  
@@ -72,7 +72,7 @@
 }
 .shop image {
   width: 100%;
-  height: 190rpx;
+  height: 300rpx;
 
 }
 .info {
@@ -81,12 +81,13 @@
   margin-top: 16rpx;
   border-top: 1px solid #EAEAEA;
   padding: 20rpx 0 16rpx;
-  height: 36rpx;
+  height: 48rpx;
 }
 .info text {
   flex: 1;
   color: #212A42;
   font-size: 28rpx;
+  line-height: 36rpx;
 }
 .info button {
   background: #0BBD89;
@@ -109,7 +110,7 @@
   color: #5E6A88;
   font-size: 24rpx;
   margin-left: 8rpx;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 .dialog {
   width: 100%;
@@ -128,7 +129,7 @@
   height: 100%;
   z-index: 11;
 }
-.dialog .change {
+.dialog .change, dialog .showPic {
   position: absolute;
   top: 166rpx;
   left: 0;
@@ -146,7 +147,7 @@
   font-size: 28rpx;
   color: #5E6A88;
 }
-.change .hd image {
+.dialog .closeDialog {
   width: 40rpx;
   height: 40rpx;
   float: right;
@@ -249,13 +250,15 @@
   font-size: 36rpx;
 }
 .picker {
-  position: absolute;
+  position: fixed;
+  /* top: calc(100vh - 300rpx); */
   bottom: 0;
   left: 0;
   width: 100%;
   height: 300rpx;
   text-align: center;
   text-transform: uppercase;
+  background: #ffffff;
 }
 picker-view {
   width: 100%;
@@ -263,4 +266,68 @@ picker-view {
 }
 .picker view {
   width: 100%;
+}
+.address {
+  margin-top: 32rpx;
+}
+.hasAddress {
+  display: flex;
+}
+.hasAddress text {
+  flex: 1;
+}
+.hasAddress button {
+  padding: 0 16rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  color: #ffffff;
+  background: #707B99;
+}
+.editAddress view {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #dadbe0;
+}
+.editAddress view input {
+  line-height: 80rpx;
+  height: 80rpx;
+}
+.placeholder {
+  color: #919191;
+  font-size: 28rpx;
+}
+.showPic {
+  position: absolute;
+  z-index: 12;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: -380rpx;
+  min-height: 660rpx;
+  left: 5%;
+  top: 40vh;
+  background: #ffffff;
+  border-radius: 12rpx;
+  padding-bottom: 60rpx;
+}
+.showPic .pic {
+  padding: 10rpx 60rpx;
+  width: 100%;
+  box-sizing: border-box;
+  /* height: auto; */
+  min-height: 540rpx;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 16rpx;
+}
+.showPic .closeDialog {
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+}
+.showPic text {
+  display: block;
+  margin-left: 60rpx;
+  line-height: 40rpx;
 }

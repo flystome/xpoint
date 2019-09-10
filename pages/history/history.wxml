@@ -8,12 +8,14 @@
   </view> -->
 
   <scroll-view class='detail'>
-    <view wx:for="{{shoppings}}" wx:key="timestamp" class='item'>
+    <view wx:for="{{shoppings}}" wx:key="id" class='item'>
       <view class='shop'>{{item.product_name}}</view>
       <view class='bd' bindtap='goDetail' data-item="{{item}}">
         <view class='lt' wx:if="{{item.business_type == 'envelope'}}">
           <image src='img/red.png'></image>
-          <text class='title'>积分红包</text>
+          <text class='title' wx:if="{{item.action == 1}}">发-积分红包</text>
+          <text class='title' wx:elif="{{item.action == 4}}">退-积分红包</text>
+          <text class='title' wx:else>退-积分红包</text>
           <text class='time'>{{filter.formatTime(item.timestamp)}}</text>
         </view>
         <view class='lt' wx:elif="{{item.business_type == 'receive_score' ||item.business_type == 'receive_score_commission'}}">

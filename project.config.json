@@ -12,8 +12,8 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.1",
-	"appid": "wx30bd0c31fddcaf2c",
+	"libVersion": "2.7.3",
+	"appid": "wx988f74d3371e805a",
 	"projectname": "qpay",
 	"debugOptions": {
 		"hidedInDevtools": []

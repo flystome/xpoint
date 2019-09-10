@@ -22,7 +22,14 @@ Page({
     var self = this
     if (e.detail.userInfo) {
       app.globalData.userInfo = e.detail.userInfo
-      this.login(e.detail.userInfo)
+      console.log(app.globalData.session)
+      if (!app.globalData.session) {
+        this.login(e.detail.userInfo)
+      } else {
+        wx.navigateBack({
+          delta: 1
+        })
+      }
     }
   },
 
@@ -31,6 +38,7 @@ Page({
     wx.showLoading({
       title: '',
     })
+    // console.log(app.globalData.code)
     wx.request({
       url: app.globalData.url + '/qpay_vns/user/info',
       method: "POST",

@@ -2,7 +2,8 @@
 App({
   globalData: {
     userInfo: null,
-    url: "https://www.banbeikafei.com",
+    url: "https://www.xpoint.pro",
+    // url: "https://www.banbeikafei.com",
     uid: "",
     session: "",
     code: ''
@@ -26,7 +27,7 @@ App({
       // 登录
       wx.login({
         success: res => {          
-          self.globalData.code = res.code          
+          self.globalData.code = res.code       
         }
       })
     }
@@ -47,9 +48,11 @@ App({
             }
           })
         } else {
-          wx.navigateTo({
-            url: '../../pages/login/login'
-          })
+          if (options.path !== "pages/index/index") {
+            wx.navigateTo({
+              url: '../../pages/login/login'
+            })
+          } 
         }
       }
     })

@@ -34,6 +34,14 @@
   margin-left: 20rpx;
   font-size: 36rpx;
 }
+.photo view {
+  display: inline-block;
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 42rpx;
+  border: 2rpx solid #FFFFFF;
+  background: #F2F2F2;
+}
 .banner .scores {
   position: absolute;
   top: 40rpx;
@@ -108,7 +116,7 @@
   font-size: 36rpx;
   color: #373b4c;
   box-sizing: border-box;
-  background: #F9F9F9;
+  background: #ffffff;
   border-radius: 12rpx;
 }
 .list .content {
@@ -125,6 +133,7 @@
 }
 .list .content .coin {
   color: #212A42;
+  text-transform: uppercase;
 }
 .list .links {
   height: 64rpx;
@@ -146,7 +155,7 @@
 }
 .links view {
   float: left;
-  width: 49%;
+  width: 33.3%;
   color: #5E6A88;
   font-size: 24rpx;
   text-align: center;
@@ -163,8 +172,13 @@
   height: 26rpx;
   vertical-align:-2rpx;
 }
-.links view:last-child image {
+.links view.goRed image {
   width: 26rpx;
   height: 28rpx;
   vertical-align:-4rpx;
+}
+.links view:last-child image {
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align:-7rpx;
 }

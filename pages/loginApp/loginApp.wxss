@@ -26,7 +26,7 @@ form view input {
   flex: 1;
   padding-left: 10rpx;
 }
-form .account,form .code {
+form .account,form .code, form .password {
   height: 100rpx;
   border-bottom: 1px solid #dadbe0;
 }
@@ -54,4 +54,8 @@ form button {
   margin-top: 54rpx;
   width: 100%;
   color: #ffffff;
+}
+.tip {
+  font-size: 24rpx;
+  color: #ff0000;
 }

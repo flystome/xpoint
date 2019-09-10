@@ -1,0 +1,70 @@
+<!--pages/changeHis/changeHis.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view class='container'>
+  <view class='header'>
+    <view class='checkbox' bindtap='showChoose' capture-catch='showChoose' >
+      <image wx:if="{{!!curData.logo}}" src='{{curData.logo}}'></image>
+      <text>{{curData.currency}}</text>
+      <view class='icon'></view>
+    </view>
+    <view bindtap="goShop"><text>商品</text></view>
+    <view class='cur'><text>兑换历史</text></view>
+  </view>
+  <scroll-view class='shopList'>
+    <view class='shop' wx:for="{{history}}" data-item="{{item}}" wx:key="id" bindtap="showDialog" capture-catch="showDialog">
+      <image src="{{item.logo}}"></image>
+      <view>
+        <view class='info'>
+          <text class='title'>{{item.title}}</text>
+          <text class='num'>x{{item.quantity}}</text>
+        </view>
+        <view class='price'>
+          <text class='coin'>{{item.currency}}</text>
+          <text class='tid'>{{item.order_no}}</text>
+        </view>
+        <view class=''>
+          <text class='cost'>-{{item.price*item.quantity}}</text>
+          <text class='time'>{{filter.formatTime(item.pay_at, 2)}}</text>
+        </view>
+      </view> 
+    </view>
+  </scroll-view>
+  <view class='dialog' wx:if="{{showDialog}}">
+    <view class='mask'></view>
+    <view class='change'>
+      <view class='hd'>
+        <image bindtap='closeDialog' src='../exchange/img/close.png'></image>
+        <text>订单详情</text>
+      </view>
+      <view class='shop'>
+        <image src="{{product.logo}}"></image>
+        <view>
+          <view class='info'>
+            <text class='title'>{{product.title}}</text>
+            <text class='num'>x{{product.quantity}}</text>
+          </view>
+          <view class='price'>
+            <text class='coin'>{{product.currency}}</text>
+            <text class='tid'>{{product.order_no}}</text>
+          </view>
+          <view class=''>
+            <text class='cost'>-{{product.price*product.quantity}}</text>
+            <text class='time'>{{filter.formatTime(product.pay_at, 2)}}</text>
+          </view>
+        </view> 
+      </view>
+      <view class="addressInfo">
+        <text class="address">{{product.address}}</text>
+        <text class="name">{{product.name}}  {{product.phone}}</text>
+        <text class="txid" wx:if="{{product.tracking_no}}">快递单号：{{product.tracking_no}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='picker' wx:if="{{showChoose}}">
+    <picker-view indicator-style="height: 50px;" bindchange="bindChange" value="{{value}}">
+      <picker-view-column>
+        <view wx:for="{{currencies}}" wx:key="{{item[0]}}" style="line-height: 50px">{{item.currency}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>
