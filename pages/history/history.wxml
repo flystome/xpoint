@@ -13,9 +13,10 @@
       <view class='bd' bindtap='goDetail' data-item="{{item}}">
         <view class='lt' wx:if="{{item.business_type == 'envelope'}}">
           <image src='img/red.png'></image>
-          <text class='title' wx:if="{{item.action == 1}}">发-积分红包</text>
-          <text class='title' wx:elif="{{item.action == 4}}">退-积分红包</text>
-          <text class='title' wx:else>退-积分红包</text>
+          <text class='title' wx:if="{{item.action == 1}}">发红包</text>
+          <text class='title' wx:elif="{{item.action == 4}}">过期退回红包</text>
+          <text class='title' wx:elif="{{item.action == 2 || item.action == 3}}">领红包</text>
+          <text class='title' wx:else>红包</text>
           <text class='time'>{{filter.formatTime(item.timestamp)}}</text>
         </view>
         <view class='lt' wx:elif="{{item.business_type == 'receive_score' ||item.business_type == 'receive_score_commission'}}">
@@ -33,7 +34,7 @@
           <text class='title'>转账</text>
           <text class='time'>{{filter.formatTime(item.timestamp)}}</text>
         </view>
-        <text class="points {{item.change>0 ? 'red': ''}}">{{item.change>0 ? "+": ""}}{{item.change}}</text>
+        <text class="points {{item.change>0 ? 'red': ''}}">{{item.change>0 ? "+": ""}}{{filter.formatPrecise(item.change)}}</text>
       </view>
     </view>
   </scroll-view>

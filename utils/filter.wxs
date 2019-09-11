@@ -23,7 +23,12 @@ var upper = function (text) {
   return str.toUpperCase()
 }
 
+var formatPrecise = function (n) {
+  return parseFloat(parseFloat(n).toFixed(2))
+}
+
 module.exports = {
   formatTime: formatTime,
-  upper: upper
+  upper: upper,
+  formatPrecise: formatPrecise
 }
