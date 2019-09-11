@@ -92,12 +92,12 @@
 }
 .info button {
   background: #0BBD89;
-  width: 68rpx;
-  height: 36rpx;
+  width: 70rpx;
+  height: 48rpx;
   border-radius: 18rpx;
   color: #ffffff;
   font-size: 24rpx;
-  line-height: 36rpx;
+  line-height: 48rpx;
   text-align: center;
   padding: 0;
 }
