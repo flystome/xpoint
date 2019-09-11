@@ -67,7 +67,7 @@ Page({
         } else if (data.code == 1003) {
           self.modal('发送短信失败', '请输入正确的手机号或邮箱')
           clearInterval(timer)
-          self.clearClock(time)
+          self.clearClock()
         } else if (data.code == 1005) {
           self.modal('发送短信失败', '短信发送频率太快，请稍后再发')
           clearInterval(timer)
@@ -151,7 +151,7 @@ Page({
         } else if (data.code == 1004) {
           self.modal('绑定账户失败', '短信验证码错误')
         } else {
-          self.modal('绑定账户失败')
+          self.modal('绑定账户失败', '')
         }
       },
       complete() {

@@ -64,6 +64,21 @@
   margin-top: 24rpx;
   font-size: 40rpx;
 }
+.bless {
+  background: #ffffff;
+  padding: 32rpx 16rpx;
+  margin-top: 32rpx;
+  height: 120rpx;
+  
+}
+.bless textarea {
+    width: 100%;
+}
+.placeholder1 {
+  font-size: 32rpx;
+  color: #b7b7b7;
+  border-radius: 4rpx;
+}
 .submit {
   margin-top: 32rpx;
   background: #fa5051;

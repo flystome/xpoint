@@ -8,7 +8,8 @@ Page({
    */
   data: {
     id: '',
-    userInfo: {}
+    userInfo: {},
+    bless: ''
   },
 
   goHome() {
@@ -27,6 +28,7 @@ Page({
     // console.log(options.id)
     this.setData({
       id: options.id,
+      bless: options.bless,
       userInfo: app.globalData.userInfo
     })
   },
@@ -77,9 +79,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    let id = this.data.id
     return {
-      title: "分享红包",
-      path: `/pages/getRed/getRed?id=${this.data.id}`
+      title: this.data.bless,
+      path: `/pages/getRed/getRed?id=${id}`
     }
   }
 })

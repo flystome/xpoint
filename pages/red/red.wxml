@@ -25,6 +25,10 @@
     <text>当前账号余额：<text class='asset'>{{asset}} {{filter.upper(id)}}</text></text>
   </view>
 
+  <view class="bless">
+    <textarea placeholder='恭喜发财，大吉大利！' maxlength="30" bindinput="blessChange" adjust-position placeholder-class='placeholder1' value="{{bless}}"></textarea>
+  </view>
+
   <view class='last'>{{redVal}} {{filter.upper(id)}}</view>
 
   <button class='submit' bindtap='send' disabled=''>塞币进红包</button>

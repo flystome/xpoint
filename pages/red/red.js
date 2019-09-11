@@ -14,7 +14,8 @@ Page({
     isEqual: false,
     redId: 0,
     nickname: "",
-    redVal: 0
+    redVal: 0,
+    bless: ''
   },
 
   changeWay: function(e) {
@@ -84,6 +85,12 @@ Page({
     })
   },
 
+  blessChange: function (e) {
+    this.setData({
+      bless: e.detail.value
+    })
+  },
+
   send: function() {
     let amount = 0
     let share = 0
@@ -134,6 +141,7 @@ Page({
       title: '正在发送...',
     })
     let self = this
+    console.log(self.data.bless)
     wx.request({
       url: app.globalData.url + '/qpay_vns/envelope/send',
       method: "POST",
@@ -141,15 +149,16 @@ Page({
         session: app.globalData.session,
         currency: self.data.id,
         volume: amount,
-        share: share,
-        type: type
+        share: ''+share,
+        type: type,
+        bless: self.data.bless || '恭喜发财，大吉大利！'
       },
       success(res) {
         var data = res.data
         if (data.code == 200) {
           wx.hideLoading()
           wx.navigateTo({
-            url: `../share/share?id=${data.envelope.id}`,
+            url: `../share/share?id=${data.envelope.id}&bless=${data.envelope.bless}`,
           })
         } else if (data.code == 1003) {
           wx.showModal({

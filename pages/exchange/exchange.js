@@ -202,7 +202,7 @@ Page({
     }
   },
 
-  exchange: function () {
+  formSubmit: function (e) {
     let total = this.data.product.price * this.data.num
     if (!this.data.diaData || total > this.data.diaData.total) {
       wx.showModal({
@@ -238,7 +238,8 @@ Page({
         count: this.data.num,
         name: this.data.name,
         address: this.data.address,
-        phone: this.data.phone
+        phone: this.data.phone,
+        formId: e.detail.formId
       },
       success(res) {
         // console.log(res)

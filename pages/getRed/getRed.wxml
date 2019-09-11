@@ -17,6 +17,7 @@
   <view>
     <view class='view2'>
       <text class='from'>来自{{envelope.nickname}}的{{filter.upper(envelope.currency)}}红包</text>
+      <text class="bless">{{envelope.bless}}</text>
       <text class='volume'>{{open_log.volume}}</text>
       <view class='goHome' bindtap='goHome'>
         <text>回首页查询余额</text>

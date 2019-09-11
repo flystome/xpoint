@@ -31,54 +31,56 @@
   </view>
   <view class='dialog' wx:if="{{showDialog}}">
     <view class='mask'></view>
-    <view class='change'>
-      <view class='hd'>
-        <image bindtap='closeDialog' class="closeDialog" src='img/close.png'></image>
-        <text>订单详情</text>
-      </view>
-      <view class='content'>
-        <image src="{{product.logo}}"></image>
-        <text class='name'>{{product.title}}</text>
-        <text class='desc'>{{product.desc}}</text> 
-      </view>
-      <view class='number'>
-        <view class='nums'>
-          <text>兑换数量</text>
-          <text class='desc'>(库存{{product.quantity}}份)</text>
+    <form bindsubmit="formSubmit" report-submit='true'>
+      <view class='change'>
+        <view class='hd'>
+          <image bindtap='closeDialog' class="closeDialog" src='img/close.png'></image>
+          <text>订单详情</text>
         </view>
-        <view class='action'>
-          <image src='img/sub.png' bindtap='changeNum' data-step="-1"></image>
-          <text class='num'>{{num}}</text>
-          <image src='img/add.png' bindtap='changeNum' data-step="1"></image>
+        <view class='content'>
+          <image src="{{product.logo}}"></image>
+          <text class='name'>{{product.title}}</text>
+          <text class='desc'>{{product.desc}}</text> 
         </view>
-      </view>
-      <hr />
-      <view class='total'>
-        <view>
-          <image src='{{diaData.logo}}'></image>
-          <text>{{product.currency}}</text>
-        </view>
-        <text>-{{product.price * num}}</text>
-      </view>
-      <view class="address">
-        <view class="hasAddress" wx:if="{{showAddress}}">
-          <text>{{address}} {{name}} {{phone}}</text>
-          <button bindtap="editAddress">{{addressText}}</button>
-        </view>
-        <form class="editAddress" wx:else>
-          <view>
-            <input placeholder='收货地址' bindinput="addressChange" value="{{address}}" placeholder-class='placeholder'></input>
+        <view class='number'>
+          <view class='nums'>
+            <text>兑换数量</text>
+            <text class='desc'>(库存{{product.quantity}}份)</text>
           </view>
-          <view>
-            <input placeholder='收件人' bindinput="nameChange" value="{{name}}" placeholder-class='placeholder'></input>
+          <view class='action'>
+            <image src='img/sub.png' bindtap='changeNum' data-step="-1"></image>
+            <text class='num'>{{num}}</text>
+            <image src='img/add.png' bindtap='changeNum' data-step="1"></image>
           </view>
+        </view>
+        <hr />
+        <view class='total'>
           <view>
-            <input placeholder='联系电话' type="number" value="{{phone}}" bindinput="phoneChange" placeholder-class='placeholder'></input>
+            <image src='{{diaData.logo}}'></image>
+            <text>{{product.currency}}</text>
           </view>
-        </form>
+          <text>-{{product.price * num}}</text>
+        </view>
+        <view class="address">
+          <view class="hasAddress" wx:if="{{showAddress}}">
+            <text>{{address}} {{name}} {{phone}}</text>
+            <button bindtap="editAddress">{{addressText}}</button>
+          </view>
+          <form class="editAddress" wx:else>
+            <view>
+              <input placeholder='收货地址' bindinput="addressChange" value="{{address}}" placeholder-class='placeholder'></input>
+            </view>
+            <view>
+              <input placeholder='收件人' bindinput="nameChange" value="{{name}}" placeholder-class='placeholder'></input>
+            </view>
+            <view>
+              <input placeholder='联系电话' type="number" value="{{phone}}" bindinput="phoneChange" placeholder-class='placeholder'></input>
+            </view>
+          </form>
+        </view>
+        <button class='confirm' form-type="submit">确认兑换</button>
       </view>
-      <button class='confirm' bindtap='exchange'>确认兑换</button>
-    </view>
+    </form>
   </view>
   <view class="dialog" wx:if="{{curPic}}"bindtap='closeDialog1' catchtap="closeDialog1">
     <view class='mask'></view>
