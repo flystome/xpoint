@@ -159,14 +159,13 @@ Page({
     this.setData({
       id: id
     })
-    console.log(app.globalData.session)
     if (app.globalData.session) {
       this.setData({
         session: app.globalData.session
       })
       this.getData()
     } else {
-      getApp().watch(self.getData)
+      app.watch(self.getData, "session")
     }
   },
 

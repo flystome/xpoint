@@ -1,0 +1,18 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+  <view class="banner">
+    <view class='photo' wx:if="{{userInfo.nickName}}">
+      <image src="{{userInfo.avatarUrl}}"></image>
+      <text>{{userInfo.nickName}}</text>
+    </view>
+    <view class="photo photo1" wx:else bindtap="goLogin" capture-catch='goLogin'>
+      <view></view>
+      <text>点击授权</text>
+    </view>
+  </view>
+  <view class="action">
+    <view>绑定App</view>
+    <view>做码</view>
+    <view>收取积分</view>
+  </view>
+</view>

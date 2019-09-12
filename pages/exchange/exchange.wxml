@@ -1,7 +1,7 @@
 <!--pages/exchange/exchange.wxml-->
 <wxs module="filter" src="../../utils/filter.wxs"></wxs>
 <view class='container'>
-  <view class='header'>
+  <!-- <view class='header'>
     <view class='checkbox' bindtap='showChoose' capture-catch='showChoose' >
       <image wx:if="{{!!curData.logo}}" src='{{curData.logo}}'></image>
       <text>{{filter.upper(curData.currency)}}</text>
@@ -9,7 +9,7 @@
     </view>
     <view class='cur'><text>商品</text></view>
     <view bindtap="goHis"><text>兑换历史</text></view>
-  </view>
+  </view> -->
 
   <scroll-view class='shopList'>
     <view class='shop' wx:for="{{products}}" wx:key="id" >
@@ -24,13 +24,13 @@
       </view>
     </view>
   </scroll-view>
-  <view class='picker' wx:if="{{showChoose}}">
+  <!-- <view class='picker' wx:if="{{showChoose}}">
     <picker-view indicator-style="height: 50px;" bindchange="bindChange" value="{{value}}">
       <picker-view-column>
         <view wx:for="{{currencies}}" wx:key="{{item[0]}}" style="line-height: 50px">{{item.currency}}</view>
       </picker-view-column>
     </picker-view>
-  </view>
+  </view> -->
   <view class='dialog' wx:if="{{showDialog}}">
     <view class='mask'></view>
     <form bindsubmit="formSubmit" report-submit='true'>

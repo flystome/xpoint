@@ -2,7 +2,7 @@
 <view class='container'>
   <view class='banner'>
     <image src='img/logo.png'></image>
-    <text>Mypoint</text>
+    <text>Xpoint</text>
   </view>
   <view class='info'>
     <text class='text1'>申请获得以下权限</text>
