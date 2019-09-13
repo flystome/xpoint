@@ -109,7 +109,7 @@
   width: 100%;
   box-sizing: border-box;
   flex: 1;
-  margin-bottom: 48rpx;
+  /* margin-bottom: 48rpx; */
 }
 .detail view.list {
   height: 200rpx;

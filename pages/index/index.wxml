@@ -1,16 +1,18 @@
 <!--pages/exchange/exchange.wxml-->
 <wxs module="filter" src="../../utils/filter.wxs"></wxs>
 <view class='container'>
-  <scroll-view class='shopList'>
-    <view class='shop' wx:for="{{products}}" wx:key="id" >
-      <image src="{{item.logo}}" bindtap="showPic" data-item="{{item}}"></image>
-      <view class='info'>
-        <text>{{item.title}}</text>
-        <button data-item="{{item}}" bindtap='showInfo'>兑换</button>
-      </view>
-      <view class='price'>
-        <text class='num'>{{filter.formatPrecise(item.price)}}</text>
-        <text class='unit'>{{filter.upper(item.currency)}}</text>
+  <scroll-view>
+    <view class='shopList'>
+      <view class='shop' wx:for="{{products}}" wx:key="id" >
+        <image src="{{item.logo}}" bindtap="showPic" data-item="{{item}}"></image>
+        <view class='info'>
+          <text>{{item.title}}</text>
+          <button data-item="{{item}}" bindtap='showInfo'>兑换</button>
+        </view>
+        <view class='price'>
+          <text class='num'>{{filter.formatPrecise(item.price)}}</text>
+          <text class='unit'>{{filter.upper(item.currency)}}</text>
+        </view>
       </view>
     </view>
   </scroll-view>

@@ -1,4 +1,6 @@
 // pages/mine/mine.js
+const app = getApp()
+
 Page({
 
   /**
@@ -6,6 +8,22 @@ Page({
    */
   data: {
     userInfo: {},
+  },
+
+  bindApp: function () {
+    if (app.globalData.user && app.globalData.user.bound) {
+      wx.showToast({
+        title: '您已经绑定账号了',
+      })
+      return ;
+    }
+    wx.navigateTo({
+      url: '../loginApp/loginApp',
+    })
+  },
+
+  getScore: function () {
+    
   },
 
   /**

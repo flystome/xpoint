@@ -11,8 +11,8 @@
     </view>
   </view>
   <view class="action">
-    <view>绑定App</view>
+    <view bindtap="bindApp">绑定App</view>
     <view>做码</view>
-    <view>收取积分</view>
+    <view bindtap="getScore">收取积分</view>
   </view>
 </view>

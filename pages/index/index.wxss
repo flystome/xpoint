@@ -6,70 +6,22 @@
   display: block;
   position: relative;
 }
-.header {
-  background: #ffffff;
-  height: 80rpx;
-  line-height: 80rpx;
-  width: 100%;
-}
-.header>view {
-  color: #5E6A88;
-  font-size: 32rpx;
-  float: left;
-  width: 170rpx;
-  text-align: center;
-  margin-right: 10rpx;
-}
-.header view.cur text {
-  display: inline-block;
-  padding: 0 10rpx;
-  height: 64rpx;
-  line-height: 64rpx;
-  padding-top: 8rpx;
-  color: #212A42;
-  font-size: 32rpx;
-  border-bottom: 8rpx solid #0BBD89;
-}
-.header .checkbox {
-  float: right;
-  color: #5E6A88;
-  font-size: 32rpx;
-  text-transform: capitalize;
-}
-.checkbox image {
-  width: 56rpx;
-  height: 56rpx;
-  border-radius: 28rpx;
-  vertical-align:-12rpx;
-  margin-right: 10rpx;
-}
-.checkbox .icon {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right:6px solid transparent;
-  border-top: 8px solid #5E6A88;
-  margin-left: 8rpx;
-}
 .shopList {
-  /* display: flex;
-  flex-flow: row wrap; */
+  display: flex;
+  flex-flow: row wrap;
   margin-bottom: 20rpx;
-  /* justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
-  align-content: flex-start; */
+  align-content: flex-start;
+  padding: 0 2%;
 }
 .shop {
-  width: 47%;
-  margin-left: 2%;
-  float: left;
+  flex: 0 0 49%;
   height: 490rpx;
   background: #ffffff;
   margin-top: 20rpx;
   border-radius: 12rpx;  
   padding: 24rpx;
-  flex: 0 0 1;
   box-sizing: border-box;
 }
 .shop image {
