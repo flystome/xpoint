@@ -1,0 +1,19 @@
+/* pages/chooseCoin/chooseCoin.wxss */
+.coins {
+		width: 92%;
+		margin: 0 auto;
+		padding-top: 40rpx;
+		display: flex;
+		flex-flow: row wrap;
+}
+.coins view {
+  flex: 0 0 30%;
+  margin-right: 5%;
+  margin-bottom: 30rpx;
+}
+.coins view:nth-child(3n) {
+  margin-right: 0;
+}
+button {
+  text-transform: uppercase;
+}

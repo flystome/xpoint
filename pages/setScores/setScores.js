@@ -1,51 +1,27 @@
-// pages/mine/mine.js
-const app = getApp()
-
+// pages/setScores/setScores.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
+    currency: 'vns',
+    sn: '',
+    volume: ''
   },
 
-  bindApp: function () {
-    if (app.globalData.user && app.globalData.user.bound) {
-      wx.showToast({
-        title: '您已经绑定账号了',
-      })
-      return ;
-    }
+  chooseCoin: function() {
     wx.navigateTo({
-      url: '../loginApp/loginApp',
+      url: '../chooseCoin/chooseCoin',
     })
-  },
-
-  getScore: function () {
-    if (!app.globalData.session) {
-      wx.navigateTo({
-        url: '../login/login',
-      })
-    } else {
-      wx.navigateTo({
-        url: '../showCode/showCode'
-        // url: "../payScores/payScores"
-      })
-    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let self = this
-    wx.getUserInfo({
-      success(res) {
-        self.setData({
-          userInfo: res.userInfo
-        })
-      }
+    this.setData({
+      sn: options.sn
     })
   },
 
