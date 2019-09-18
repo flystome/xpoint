@@ -1,4 +1,4 @@
-// pages/chooseCoin/chooseCoin.js
+// pages/qrHis/qrHis.js
 const app = getApp()
 Page({
 
@@ -6,18 +6,43 @@ Page({
    * 页面的初始数据
    */
   data: {
-    coins: []
+    qrcodes: []
   },
 
-  goBack: function (e) {
-    let coin = e.currentTarget.dataset.coin
-    let pages = getCurrentPages()
-    let prevPage = pages[pages.length - 2]
-    prevPage.setData({
-      currency: coin
+  goDetail: function (e) {
+    let item = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: '../qrInfo/qrInfo',
+      success(res) {
+        res.eventChannel.emit('qrcode', { data: item })
+      }
     })
-    wx.navigateBack({
-      delta: 1
+  },
+
+  getCodes: function (page) {
+    var self = this
+    wx.showLoading({
+      title: '正在加载...',
+    })
+    wx.request({
+      url: app.globalData.url + '/qpay_vns/qrcodes',
+      method: "POST",
+      data: {
+        session: app.globalData.session,
+        page
+      },
+      success(res) {
+        var data = res.data
+        console.log(data)
+        if (data.code == 200) {
+          self.setData({
+            qrcodes: data.qrcodes
+          })
+        }
+      },
+      complete() {
+        wx.hideLoading()
+      }
     })
   },
 
@@ -25,7 +50,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getCodes()
   },
 
   /**
@@ -39,10 +64,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(app.globalData.assets)
-    this.setData({
-      coins: app.globalData.assets.map(e => e.currency)
-    })
+
   },
 
   /**

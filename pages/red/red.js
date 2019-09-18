@@ -141,7 +141,6 @@ Page({
       title: '正在发送...',
     })
     let self = this
-    console.log(self.data.bless)
     wx.request({
       url: app.globalData.url + '/qpay_vns/envelope/send',
       method: "POST",

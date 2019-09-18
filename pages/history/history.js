@@ -18,10 +18,6 @@ Page({
 
   goDetail: function(e) {
     let item = e.currentTarget.dataset.item
-    // wx.showModal({
-    //   title: `${item.business_type}`,
-    //   content: '',
-    // })
     if (item.business_type == 'envelope') {
       wx.navigateTo({
         url: `../getRed/getRed?id=${item.id}`,
@@ -43,9 +39,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var self = this
-    console.log(options.id)
-    
+    var self = this    
     this.setData({
       id: options.id
     })
@@ -70,9 +64,6 @@ Page({
            currency: data.currency
          })
         }
-      },
-      fail(err) {
-        console.error(err)
       },
       complete() {
         wx.hideLoading()

@@ -70,7 +70,7 @@
       </view>
     </form>
   </view>
-  <view class="dialog" wx:if="{{curPic}}"bindtap='closeDialog1' catchtap="closeDialog1">
+  <view class="dialog" wx:if="{{curPic}}" bindtap='closeDialog1' catchtap="closeDialog1">
     <view class='mask'></view>
     <view class="showPic">
       <image class="closeDialog" src='img/close.png'></image>

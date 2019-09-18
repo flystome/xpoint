@@ -12,7 +12,7 @@
   </view>
   <view class="action">
     <view bindtap="bindApp">绑定App</view>
-    <view>做码</view>
+    <view wx:if="{{user.gen_qrcode}}" bindtap="mkCode">做码</view>
     <view bindtap="getScore">收取积分</view>
   </view>
 </view>

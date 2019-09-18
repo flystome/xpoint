@@ -18,6 +18,19 @@
   margin: 40rpx auto 0;
   color: #ffffff;
 }
+.heads {
+  text-align: center;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+.heads image {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 12rpx;
+}
+.heads text {
+  display: block;
+}
 .needSet {
   width: 100%;
 }

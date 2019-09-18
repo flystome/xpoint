@@ -8,6 +8,13 @@ Page({
    */
   data: {
     userInfo: {},
+    user: {}
+  },
+
+  goLogin: function () {
+    wx.navigateTo({
+      url: '../login/login',
+    })
   },
 
   bindApp: function () {
@@ -22,15 +29,21 @@ Page({
     })
   },
 
+  mkCode: function () {
+    wx.navigateTo({
+      url: '../qrcode/qrcode'
+    })
+  },
+
   getScore: function () {
     if (!app.globalData.session) {
       wx.navigateTo({
-        url: '../login/login',
+        url: '../login/login'
       })
     } else {
       wx.navigateTo({
         url: '../showCode/showCode'
-        // url: "../payScores/payScores"
+        // url: "../chooseCoin/chooseCoin"
       })
     }
   },
@@ -60,7 +73,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(app.globalData.user)
+    let self = this
+    if (!this.data.userInfo.nickName) {
+      wx.getUserInfo({
+        success(res) {
+          self.setData({
+            userInfo: res.userInfo
+          })
+        }
+      })
+    }
+    this.setData({
+      user: app.globalData.user
+    })
   },
 
   /**

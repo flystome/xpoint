@@ -64,9 +64,7 @@ Page({
           app.globalData.user = obj
           let user = "" + JSON.stringify(obj)
           wx.setStorageSync('user', user)
-          wx.navigateBack({
-            delta: 1
-          })
+          wx.navigateBack()
         } else {
           wx.showModal({
             title: '授权失败',

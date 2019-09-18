@@ -38,8 +38,10 @@
     "pages/mine/mine",
     "pages/showCode/showCode",
     "pages/setScores/setScores",
-    
     "pages/chooseCoin/chooseCoin",
+    "pages/qrcode/qrcode",
+    "pages/qrInfo/qrInfo",
+    "pages/qrHis/qrHis",
     "pages/loginApp/loginApp"
   ],
   "window": {

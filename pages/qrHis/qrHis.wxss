@@ -1,0 +1,31 @@
+/* pages/qrHis/qrHis.wxss */
+.detail {
+  box-sizing: border-box;
+  padding: 10rpx 30rpx;
+}
+.detail .item {
+  height: 128rpx;
+  border-bottom: 1px solid #ECECEC;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.item .lt {
+  flex: 3;
+  display: flex
+}
+.lt image {
+  width: 88rpx;
+  height: 88rpx;
+  margin-right: 10rpx;
+}
+.lt text {
+  display: block;
+}
+.lt text:first-child {
+  text-transform: uppercase;
+}
+.rt text {
+  display: block;
+}

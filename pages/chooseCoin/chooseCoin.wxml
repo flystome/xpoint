@@ -1,6 +1,6 @@
 <!--pages/chooseCoin/chooseCoin.wxml-->
 <view class="container">
   <view class="coins">
-    <view wx:for="{{coins}}" wx:key="item" data-coin="item" bindtap="goBack" catchtap="goBack">{{item}}</view>
+    <button wx:for="{{coins}}" type="primary" wx:key="{{item}}" data-coin="{{item}}"  bindtap="goBack">{{item}}</button>
   </view>
 </view>

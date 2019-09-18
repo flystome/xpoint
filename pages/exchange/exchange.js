@@ -112,7 +112,6 @@ Page({
 
   showPic: function (e) {
     let item = e.currentTarget.dataset.item
-    console.log(item)
     this.setData({
       curPic: item
     })
