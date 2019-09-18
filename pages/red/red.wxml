@@ -5,31 +5,33 @@
     <text class="{{!isEqual ? 'cur' : ''}}" data-bool='0' bindtap="changeWay">拼手气红包</text>
     <text class="{{isEqual ? 'cur' : ''}}" data-bool='1' bindtap="changeWay">等额红包</text>
   </view>
-  <view class='total inputs' wx:if="{{!isEqual}}">
-    <text>总金额</text>
-    <input type='digit' value="{{total}}" maxlength="16" placeholder='输入红包总金额' bindinput="totalChange" placeholder-class='placeholder'></input>
-    <text>{{filter.upper(id)}}</text>
-  </view>
-  <view class='per inputs' wx:else>
-    <text>单个金额</text>
-    <input type='digit' value="{{perVal}}" maxlength="12" placeholder='输入单个红包金额' bindinput="perValChange" placeholder-class='placeholder'></input>
-    <text>{{filter.upper(id)}}</text>
-  </view>
-  <view class='num inputs'>
-    <text>红包个数</text>
-    <input type='number' value="{{num}}" maxlength="6" placeholder='输入红包个数' bindinput="numChange" placeholder-class='placeholder'></input>
-    <text>个</text>
-  </view>
+  <form bindsubmit="formSubmit" report-submit='true'>
+    <view class='total inputs' wx:if="{{!isEqual}}">
+      <text>总金额</text>
+      <input type='digit' value="{{total}}" maxlength="16" placeholder='输入红包总金额' bindinput="totalChange" placeholder-class='placeholder'></input>
+      <text>{{filter.upper(id)}}</text>
+    </view>
+    <view class='per inputs' wx:else>
+      <text>单个金额</text>
+      <input type='digit' value="{{perVal}}" maxlength="12" placeholder='输入单个红包金额' bindinput="perValChange" placeholder-class='placeholder'></input>
+      <text>{{filter.upper(id)}}</text>
+    </view>
+    <view class='num inputs'>
+      <text>红包个数</text>
+      <input type='number' value="{{num}}" maxlength="6" placeholder='输入红包个数' bindinput="numChange" placeholder-class='placeholder'></input>
+      <text>个</text>
+    </view>
+  
+    <view class='desc'>
+      <text>当前账号余额：<text class='asset'>{{filter.formatPrecise(asset)}} {{filter.upper(id)}}</text></text>
+    </view>
 
-  <view class='desc'>
-    <text>当前账号余额：<text class='asset'>{{filter.formatPrecise(asset)}} {{filter.upper(id)}}</text></text>
-  </view>
+    <view class="bless">
+      <textarea placeholder='恭喜发财，大吉大利！' maxlength="30" bindinput="blessChange" adjust-position placeholder-class='placeholder1' value="{{bless}}"></textarea>
+    </view>
 
-  <view class="bless">
-    <textarea placeholder='恭喜发财，大吉大利！' maxlength="30" bindinput="blessChange" adjust-position placeholder-class='placeholder1' value="{{bless}}"></textarea>
-  </view>
+    <view class='last'>{{redVal}} {{filter.upper(id)}}</view>
 
-  <view class='last'>{{redVal}} {{filter.upper(id)}}</view>
-
-  <button class='submit' bindtap='send' disabled=''>塞币进红包</button>
+    <button class='submit' form-type="submit">塞币进红包</button>
+  </form>
 </view>

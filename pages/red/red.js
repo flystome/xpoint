@@ -91,7 +91,7 @@ Page({
     })
   },
 
-  send: function() {
+  formSubmit: function(e) {
     let amount = 0
     let share = 0
     let type = 0
@@ -150,6 +150,7 @@ Page({
         volume: amount,
         share: ''+share,
         type: type,
+        formId: e.detail.formId,
         bless: self.data.bless || '恭喜发财，大吉大利！'
       },
       success(res) {

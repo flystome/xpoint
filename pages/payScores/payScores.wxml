@@ -10,13 +10,13 @@
     </view>
     <view class="inputs">
 			<view class="coin">
-				<text>付款币种</text>
+				<text>积分种类</text>
 				<view bindtap="chooseCoin">
 					{{currency}}
 				</view>
 			</view>
 			<view class="number">
-				<text>付款金额</text>
+				<text>积分数量</text>
 				<view>
 					<input type="digit" maxlength="10" bindinput="inputChange" placeholder="输入金额" />
 				</view>

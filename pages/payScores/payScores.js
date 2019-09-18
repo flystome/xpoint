@@ -34,14 +34,32 @@ Page({
     })
   },
 
+
+
   pay: function () {
-    let {item, volume, sn, currency} = this.data
+    let { item, volume, currency, nickname} = this.data
     if (!item) {
       this.modal('支付失败', '积分不存在，请切换积分种类')
     }
     if (item.total < volume) {
       this.modal('支付失败', '积分不足，请修改支付金额')
     }
+    let self = this
+    wx.showModal({
+      title: '确认支付',
+      content: `确认支付${volume}${currency.toUpperCase()}给${nickname}`,
+      success(res) {
+        if (res.confirm) {
+          self.payConfirm()
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
+  payConfirm: function () {
+    let { item, volume, sn, currency } = this.data
     let self = this
     wx.request({
       url: app.globalData.url + '/qpay_vns/pay',
@@ -57,6 +75,12 @@ Page({
         if (data.code == 200) {
           wx.showToast({
             title: '付款成功',
+            duration: 1500,
+            complete() {
+              wx.switchTab({
+                url: '../index/index'
+              })
+            }
           })
         } else if (data.code == 1005) {
           self.modal('支付失败', '付款人不存在')
@@ -157,7 +181,7 @@ Page({
   onShow: function () {
     if (!app.globalData.session) {
       wx.navigateTo({
-        url: '../login/login',
+        url: '../login/login'
       })
       return
     }
