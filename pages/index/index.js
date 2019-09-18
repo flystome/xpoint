@@ -128,6 +128,9 @@ Page({
         self.setData({
           userInfo: res.userInfo
         })
+      },
+      fail(res) {
+        console.log("getUserInfo failed", res)
       }
     })
     
