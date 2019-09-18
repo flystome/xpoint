@@ -1,49 +1,82 @@
+<!--pages/exchange/exchange.wxml-->
 <wxs module="filter" src="../../utils/filter.wxs"></wxs>
 <view class='container'>
-  <view class='banner'>
-    <view class='pic'>
-      <!-- <image src='img/red.png' class='red' bindtap='showList'></image> -->
-      <image wx:if='{{!bound}}' src='img/bind.png' class='bindApp' bindtap='bindApp'></image>
-    </view>
-    <view class='photo' wx:if="{{userInfo.nickName}}">
-      <image src="{{userInfo.avatarUrl}}"></image>
-      <text>{{userInfo.nickName}}</text>
-    </view>
-    <view class="photo photo1" wx:else bindtap="goLogin" capture-catch='goLogin'>
-      <view></view>
-      <text>点击授权</text>
-    </view>
-    <view class='scores' bindtap='exchange'>
-      <image src='img/frame.png'></image>
-      <text>积分兑换</text>
-    </view>
-    <view class='name'>账户总积分</view>
-    <view class='number'>{{userInfo.nickName ? filter.formatPrecise(total) : 0 }} <text>VNS</text></view>
-  </view>
-  <scroll-view class='detail' wx:if="{{userInfo.nickName}}">
-    <view class='noData list' wx:if="{{!assets.length}}">
-      <text>您还未领取积分</text>
-    </view>
-    <view class='list' wx:for="{{assets}}" wx:key="coin">
-      <view class='content'>
-        <image src='{{item.logo}}'></image>
-        <text class="coin">{{filter.upper(item.currency)}}</text>
-        <text class='points'>{{filter.formatPrecise(item.total)}}</text>
-      </view>
-      <view class='links'>
-        <view bindtap='goDetail' capture-catch='goDetail' data-id='{{item.currency}}'>
-          <image src='img/history.png'></image>
-          <text>收发历史</text>
+  <scroll-view>
+    <view class='shopList'>
+      <view class='shop' wx:for="{{products}}" wx:key="id" >
+        <image src="{{item.logo}}" bindtap="showPic" data-item="{{item}}"></image>
+        <view class='info'>
+          <text>{{item.title}}</text>
+          <button data-item="{{item}}" bindtap='showInfo'>兑换</button>
         </view>
-        <view class="goRed" catchtap='goRed' capture-catch='goRed' data-id="{{item.currency}}" data-total="{{item.total}}">
-          <image src='img/purse.png'></image>
-          <text>发红包</text>
-        </view>
-        <view bindtap='exchange1' capture-catch='goRed'  data-id="{{item.currency}}">
-          <image src='img/frame.png'></image>
-          <text>积分兑换</text>
+        <view class='price'>
+          <text class='num'>{{filter.formatPrecise(item.price)}}</text>
+          <text class='unit'>{{filter.upper(item.currency)}}</text>
         </view>
       </view>
     </view>
   </scroll-view>
+
+  <view class='dialog' wx:if="{{showDialog}}">
+    <view class='mask'></view>
+    <form bindsubmit="formSubmit" report-submit='true'>
+      <view class='change'>
+        <view class='hd'>
+          <image bindtap='closeDialog' class="closeDialog" src='img/close.png'></image>
+          <text>订单详情</text>
+        </view>
+        <view class='content'>
+          <image src="{{product.logo}}"></image>
+          <text class='name'>{{product.title}}</text>
+          <text class='desc'>{{product.desc}}</text> 
+        </view>
+        <view class='number'>
+          <view class='nums'>
+            <text>兑换数量</text>
+            <text class='desc'>(库存{{product.quantity}}份)</text>
+          </view>
+          <view class='action'>
+            <image src='img/sub.png' bindtap='changeNum' data-step="-1"></image>
+            <text class='num'>{{num}}</text>
+            <image src='img/add.png' bindtap='changeNum' data-step="1"></image>
+          </view>
+        </view>
+        <hr />
+        <view class='total'>
+          <view>
+            <image src='{{logo}}'></image>
+            <text>{{product.currency}}</text>
+          </view>
+          <text>-{{filter.formatPrecise(product.price * num)}}</text>
+        </view>
+        <view class="address">
+          <view class="hasAddress" wx:if="{{showAddress}}">
+            <text>{{address}} {{name}} {{phone}}</text>
+            <button bindtap="editAddress">新地址</button>
+          </view>
+          <form class="editAddress" wx:else>
+            <view>
+              <input placeholder='收货地址' bindinput="addressChange" value="{{address}}" placeholder-class='placeholder'></input>
+            </view>
+            <view>
+              <input placeholder='收件人' bindinput="nameChange" value="{{name}}" placeholder-class='placeholder'></input>
+            </view>
+            <view>
+              <input placeholder='联系电话' type="number" value="{{phone}}" bindinput="phoneChange" placeholder-class='placeholder'></input>
+            </view>
+          </form>
+        </view>
+        <button class='confirm' form-type="submit">确认兑换</button>
+      </view>
+    </form>
+  </view>
+  <view class="dialog" wx:if="{{curPic}}" bindtap='closeDialog1' catchtap="closeDialog1">
+    <view class='mask'></view>
+    <view class="showPic">
+      <image class="closeDialog" src='img/close.png'></image>
+      <image class="pic" src="{{curPic.logo}}"></image>
+      <text class='name'>{{curPic.title}}</text>
+      <text class='desc'>{{curPic.desc}}</text>
+    </view>
+  </view>
 </view>

@@ -1,0 +1,27 @@
+<!--pages/payScores/payScores.wxml-->
+<view class="container">
+  <!-- <view class="hasSet" wx:if="{{volume}}">
+    <view class="header">确认支付给对方{{volume}} {{currency}}!</view>
+  </view> -->
+  <view class="needSet">
+    <view class="heads">
+      <image src="{{avatar}}"></image>
+      <text>转账给{{nickname}}</text>
+    </view>
+    <view class="inputs">
+			<view class="coin">
+				<text>付款币种</text>
+				<view bindtap="chooseCoin">
+					{{currency}}
+				</view>
+			</view>
+			<view class="number">
+				<text>付款金额</text>
+				<view>
+					<input type="digit" maxlength="10" bindinput="inputChange" placeholder="输入金额" />
+				</view>
+			</view>
+		</view>
+  </view>
+  <button class="copy" bindtap="pay">确定付款</button>
+</view>

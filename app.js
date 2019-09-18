@@ -6,7 +6,11 @@ App({
     // url: "https://www.banbeikafei.com",
     uid: "",
     session: "",
-    code: ''
+    sn: "",
+    code: '',
+    assets: '',
+    total: '',
+    user: null
   },
   onShow: function (options) {
     let arr = [1007, 1008, 1011, 1012, 1013]
@@ -17,13 +21,20 @@ App({
     }
   },
   onLaunch: function (options) {
-    var session = wx.getStorageSync("session")
-    if (session) {
+    let session = wx.getStorageSync("session")
+    let sn = wx.getStorageSync("sn")
+    let user = wx.getStorageSync("user")
+    if (user) {
+      this.globalData.user = JSON.parse(user)
+    }
+    if (session && sn) {
       this.globalData.session = session
+      this.globalData.sn = sn
     } else {
       this.globalData.session = ""
+      this.globalData.sn = ""
       wx.clearStorage("session")
-      var self = this
+      let self = this
       // 登录
       wx.login({
         success: res => {          
@@ -58,9 +69,9 @@ App({
     })
   },
   
-  watch: function (method) {
+  watch: function (method, val) {
     var obj = this.globalData;
-    Object.defineProperty(obj, "session", {
+    Object.defineProperty(obj, val, {
       configurable: true,
       enumerable: true,
       set: function (value) {

@@ -1,0 +1,42 @@
+<!--pages/qrcode/qrcode.wxml-->
+<view class="container">
+  <view class='chooseWay'>
+    <text class="cur">生成码</text>
+    <text bindtap="goQr">历史列表</text>
+  </view>
+  <view class="mkCode">
+    <view class="inputs">
+      <label>选择币种：</label>
+      <view class="taps" bindtap="chooseCoin">{{currency}}</view>
+    </view>
+    <view class="inputs">
+      <label>单个数量：</label>
+      <view class="taps">
+        <input type="digit" maxlength="10" bindinput="changeVolume" placeholder="请输入单个码积分数量"  placeholder-class='placeholder'></input>
+      </view> 
+    </view>
+    <view class="inputs">
+      <label>可扫描次数：</label>
+      <view class="taps">
+        <input type="number" maxlength="6" bindinput="changeTimes" placeholder="请输入次数"  placeholder-class='placeholder'></input>
+      </view>
+    </view>
+    <view class="inputs">
+      <label>过期时间：</label>
+      <view class="taps" bindtap="showPicker">{{expired_at}}</view>
+    </view>
+    <button type="primary" bindtap="qrcode">生成积分码</button>
+  </view>
+
+  <picker-view wx:if="{{showPick}}" indicator-style="height: 50px;" style="width: 100%; height: 200px;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{years}}" style="line-height: 50px;text-align: center">{{item}}年</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}" style="line-height: 50px;text-align: center">{{item}}月</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{days}}" style="line-height: 50px;text-align: center">{{item}}日</view>
+    </picker-view-column>
+  </picker-view>
+</view>

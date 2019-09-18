@@ -1,0 +1,33 @@
+/* pages/showCode/showCode.wxss */
+.container {
+  background: #ECECEC;
+  padding-top: 54px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.info {
+  width: 92%;
+  margin: 0 auto;
+  background: #FFFFFF;
+  padding-top: 50rpx;
+  padding-bottom: 50rpx;
+  border-radius: 12rpx;
+  text-align: center;
+}
+.info	text {
+  display: block;
+  color: #333333;
+  font-size: 32rpx;
+}
+.info	.money {
+  text-transform: uppercase;
+}
+.info	view {
+  margin: 30rpx 0;
+}
+.info	.qrcode {
+  width: 600rpx;
+  margin: 0 auto;
+  text-align: center;
+}

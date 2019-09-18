@@ -1,23 +1,55 @@
-{
+{ 
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#666666",
+    "backgroundColor": "#ECECEC",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/tab-home.png",
+        "selectedIconPath": "img/tab-home-current.png",
+        "text": "商城"
+      }, {
+        "pagePath": "pages/wallet/wallet",
+        "iconPath": "img/tab-cart.png",
+        "selectedIconPath": "img/tab-cart-current.png",
+        "text": "钱包"
+      }, {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "img/tab-my.png",
+        "selectedIconPath": "img/tab-my-current.png",
+        "text": "我的"
+      }
+    ]
+  },
   "pages": [
     "pages/index/index",
+    "pages/payScores/payScores",
+    "pages/wallet/wallet",
+    "pages/exchange/exchange",
     "pages/changeHis/changeHis",
     "pages/history/history",
-    "pages/generate/generate",
     "pages/getRed/getRed",
     "pages/share/share",
     "pages/redList/redList",
     "pages/login/login",
     "pages/earnPoint/earnPoint",
-    "pages/exchange/exchange",
     "pages/sucChange/sucChange",
-    "pages/loginApp/loginApp"  
+    "pages/mine/mine",
+    "pages/showCode/showCode",
+    "pages/setScores/setScores",
+    "pages/chooseCoin/chooseCoin",
+    "pages/qrcode/qrcode",
+    "pages/qrInfo/qrInfo",
+    "pages/qrHis/qrHis",
+    "pages/loginApp/loginApp"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#373b4c",
     "navigationBarTitleText": "Xpoint",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
   },
   "sitemapLocation": "sitemap.json"
 }

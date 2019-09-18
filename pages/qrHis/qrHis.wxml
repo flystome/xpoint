@@ -1,0 +1,19 @@
+<!--pages/qrHis/qrHis.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view class='container'>
+  <scroll-view class='detail'>
+    <view wx:for="{{qrcodes}}" wx:key="index" class='item' data-item="{{item}}" bindtap="goDetail">
+      <view class='lt'>
+        <image src='../history/img/qr.png'></image>
+        <view>
+          <text class='title'>{{item.coin_code}}</text>
+          <text class='time'>{{filter.formatTime(item.expired_at, 2)}}</text>
+        </view>
+      </view>
+      <view class="rt">
+        <text>{{item.score}}</text>
+        <text>{{item.count}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

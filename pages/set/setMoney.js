@@ -1,4 +1,4 @@
-// pages/generate/generate.js
+// pages/set/setMoney.js
 Page({
 
   /**

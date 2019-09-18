@@ -22,7 +22,6 @@ Page({
     var self = this
     if (e.detail.userInfo) {
       app.globalData.userInfo = e.detail.userInfo
-      console.log(app.globalData.session)
       if (!app.globalData.session) {
         this.login(e.detail.userInfo)
       } else {
@@ -50,15 +49,22 @@ Page({
       success(res) {
         wx.hideLoading()
         var data = res.data
+        console.log(res.data)
         if (data.code == 200) {
           app.globalData.session = data.session
-          wx.setStorage({
-            key: "session",
-            data: data.session
-          })
-          wx.navigateBack({
-            delta: 1
-          })
+          app.globalData.sn = data.sn
+          wx.setStorageSync("session", data.session)
+          wx.setStorageSync("sn", data.sn)
+          let {bound, gen_qrcode, recipient} = data
+          let obj = {
+            bound,
+            gen_qrcode,
+            recipient
+          }
+          app.globalData.user = obj
+          let user = "" + JSON.stringify(obj)
+          wx.setStorageSync('user', user)
+          wx.navigateBack()
         } else {
           wx.showModal({
             title: '授权失败',
@@ -66,9 +72,6 @@ Page({
             showCancel: false
           })
         }
-      },
-      fail(err) {
-        console.error(err)
       },
       complete() {
         wx.hideLoading()

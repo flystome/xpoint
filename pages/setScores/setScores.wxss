@@ -1,0 +1,43 @@
+/* pages/setScores/setScores.wxss */
+.container {
+  background: #ECECEC;
+  padding-top: 54px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.inputs {
+  width: 92%;
+  margin: 30rpx auto;
+  display: flex;
+}
+.inputs text {
+  font-size: 30rpx;
+}
+.inputs view view {
+  width: 100%;
+  height: 80rpx;
+  background: #ffffff;
+  line-height: 80rpx;
+  display: flex;
+  margin-top: 24rpx;
+  padding: 16rpx 16rpx;
+  box-sizing: border-box;
+  border-radius: 8rpx;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 32rpx;
+}
+.inputs .coin {
+  flex: 2;
+  margin-right: 16rpx;
+}
+.inputs .number {
+  flex: 3;
+}
+.copy {
+  background: #626ace;
+  width: 92%;
+  margin: 40rpx auto 0;
+  color: #ffffff;
+}

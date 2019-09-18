@@ -1,0 +1,29 @@
+/* pages/qrInfo/qrInfo.wxss */
+.container {
+  background: #EAEAEA;
+}
+.info {
+  width: 90%;
+  margin: 60rpx auto;
+  text-align: center;
+  padding-bottom: 80rpx;
+}
+.info image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 30rpx
+}
+.qrcode {
+  width: 600rpx;
+  margin: 0 auto 30rpx;
+  text-align: center;
+}
+.desc {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.tips {
+  margin-top: 80rpx;
+  color: #ff0000;
+  font-size: 26rpx;
+}

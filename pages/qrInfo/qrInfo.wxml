@@ -1,0 +1,20 @@
+<!--pages/qrInfo/qrInfo.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view class="container">
+  <view class="info">
+    <image src="{{logo}}"></image>
+    <view class="qrcode">
+      <canvas style="width: 600rpx;height: 600rpx;" canvas-id="mycanvas"/>
+    </view>
+    <view class="desc">
+      积分值：<text>{{qrcode.score}}</text>
+    </view>
+    <view class="desc">
+      可扫描次数：<text>{{qrcode.origin_count}}</text>
+    </view>
+    <view class="desc">
+      过期时间：<text>{{filter.formatTime(qrcode.expired_at, 2)}}</text>
+    </view>
+    <view class="tips">*扫码领取积分</view>
+  </view>
+</view>
