@@ -68,9 +68,11 @@ Page({
     let { expired_at, currency, times, volume } = this.data
     if (!volume) {
       this.modal('生成积分失败', '请输入单个码积分数量')
+      return
     }
     if (!times) {
       this.modal('生成积分失败', '请输入可领取次数')
+      return
     }
     let self = this
     wx.request({
@@ -81,7 +83,7 @@ Page({
         currency,
         score: ''+volume,
         count: times,
-        expired_at: `${expired_at} 00:00:00`
+        expired_at: `${expired_at} 23:59:59`
       },
       success(res) {
         var data = res.data

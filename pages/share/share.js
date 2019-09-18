@@ -81,7 +81,7 @@ Page({
   onShareAppMessage: function () {
     let id = this.data.id
     return {
-      title: this.data.bless,
+      title: '红包',
       path: `/pages/getRed/getRed?id=${id}`
     }
   }

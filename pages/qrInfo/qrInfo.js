@@ -25,7 +25,6 @@ Page({
       canvasId,   // 这里canvasId即之前创建的canvas-id
       success: function (res) {
         let tempFilePath = res.tempFilePath;
-        console.log(tempFilePath);
         that.setData({       // 如果采用mpvue,即 this.imagePath = tempFilePath
           imagePath: tempFilePath,
         });
@@ -52,7 +51,6 @@ Page({
         logo
       })
     })
-    this.createQrCode(this.data.qrcode.code, 'mycanvas', 300, 300)
   },
 
   /**
@@ -66,6 +64,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.createQrCode(`${app.globalData.url}/${this.data.qrcode.code}`, 'mycanvas', 300, 300)
 
   },
 

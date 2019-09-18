@@ -28,11 +28,9 @@ Page({
   },
 
   getUsedVolume: function(redData) {
-    
     var total = 0;
     if(redData) {
       for(var key in redData) {        
-        console.log("asdfasdf", redData[key].volume, total)
         total = total + parseFloat(redData[key].volume)
       }
     }
@@ -108,7 +106,7 @@ Page({
   initPage: function (id) {
     let self = this
     this.setData({
-      envelope_id: id || "234"
+      envelope_id: id
     })
     wx.showLoading({
       title: '加载中...',
@@ -117,7 +115,7 @@ Page({
       url: `${app.globalData.url}/qpay_vns/envelope/detail`,
       method: "POST",
       data: {
-        envelope_id: id || "234",
+        envelope_id: id,
         session: app.globalData.session
       },
       success(res) {
@@ -144,13 +142,11 @@ Page({
             self.getUsedVolume(data.details)
           } else {
             self.setData({
-              envelope: data.envelope
+              envelope: data.envelope,
+              desc: data.envelope.bless
             })
           }
         }
-      },
-      fail(err) {
-        console.error(err)
       },
       complete(){
         wx.hideLoading()

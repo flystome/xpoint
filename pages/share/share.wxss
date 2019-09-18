@@ -7,7 +7,7 @@
 }
 .container .topCorner {
   position: absolute;
-  top: -450rpx;
+  top: -550rpx;
   left: -75rpx;
   width: 900rpx;
   height: 900rpx;
@@ -16,7 +16,7 @@
 }
 .user {
   position: absolute;
-  top: 380rpx;
+  top: 280rpx;
   left: 0;
   width: 100%;
   text-align: center;
@@ -35,7 +35,7 @@
   border: 2rpx solid #ffffff;
 }
 .content {
-  padding-top: 600rpx;
+  padding-top: 500rpx;
   width: 100%;
 }
 .content text {

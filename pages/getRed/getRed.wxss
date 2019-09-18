@@ -99,6 +99,11 @@
   width: 100%;
   background: #EAEAEA;
 }
+.view2 .bless {
+  font-size: 48rpx;
+  line-height: 73rpx;
+  color: #D73743;
+}
 .from {
   font-size: 36rpx;
   line-height: 50rpx;
