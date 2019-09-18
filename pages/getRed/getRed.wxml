@@ -18,7 +18,7 @@
     <view class='view2'>
       <text class='from'>来自{{envelope.nickname}}的{{filter.upper(envelope.currency)}}红包</text>
       <text class="bless">{{envelope.bless}}</text>
-      <text class='volume'>{{open_log.volume}}</text>
+      <text class='volume'>{{filter.formatPrecise(open_log.volume)}}</text>
       <view class='goHome' bindtap='goHome'>
         <text>回首页查询余额</text>
         <image src='img/forward.png'></image>
@@ -29,7 +29,7 @@
           <image src='{{item.avatar}}'></image>
           <text class='name'>{{item.nickname}}</text>
           <view class='right'>
-            <text class='vol'>{{item.volume}}</text>
+            <text class='vol'>{{filter.formatPrecise(item.volume)}}</text>
             <text class='time'>{{filter.formatTime(item.create_at, 2)}}</text>
           </view>
         </view>
