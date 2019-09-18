@@ -28,4 +28,5 @@
 }
 .rt text {
   display: block;
+  text-align: right;
 }

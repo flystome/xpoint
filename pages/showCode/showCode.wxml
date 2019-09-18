@@ -4,7 +4,8 @@
 			<text class="title">扫二维码向我付款</text>
 			<view class="money" wx-if="{{amount && currency}}">{{amount}} {{currency}}</view>
 			<view class="qrcode" wx-if="{{address}}">
-				<canvas style="width: 600rpx;height: 600rpx;" canvas-id="mycanvas"/>
+        <image src="{{address}}"></image>
+				<!-- <canvas style="width: 600rpx;height: 600rpx;" canvas-id="mycanvas"/> -->
 			</view>
 			<!-- <text class="address" bindtap="setScores">设置金额</text> -->
 		</view>

@@ -55,11 +55,12 @@ Page({
           app.globalData.sn = data.sn
           wx.setStorageSync("session", data.session)
           wx.setStorageSync("sn", data.sn)
-          let {bound, gen_qrcode, recipient} = data
+          let {bound, gen_qrcode, recipient, paycode} = data
           let obj = {
             bound,
             gen_qrcode,
-            recipient
+            recipient,
+            paycode
           }
           app.globalData.user = obj
           let user = "" + JSON.stringify(obj)

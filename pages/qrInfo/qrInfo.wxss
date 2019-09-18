@@ -14,9 +14,14 @@
   margin-bottom: 30rpx
 }
 .qrcode {
-  width: 600rpx;
+  width: 500rpx;
   margin: 0 auto 30rpx;
   text-align: center;
+}
+.qrcode image {
+  text-align: center;
+  width: 500rpx;
+  height: 500rpx;
 }
 .desc {
   height: 80rpx;

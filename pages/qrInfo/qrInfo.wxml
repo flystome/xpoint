@@ -4,7 +4,9 @@
   <view class="info">
     <image src="{{logo}}"></image>
     <view class="qrcode">
-      <canvas style="width: 600rpx;height: 600rpx;" canvas-id="mycanvas"/>
+      <image src="{{qrcode.src}}"></image>
+      <!-- <canvas style="width: 600rpx;height: 600rpx;" canvas-id="mycanvas"/> -->
+      <!-- <canvas class='canvas' canvas-id='canvas' bindlongtap='save'></canvas> -->
     </view>
     <view class="desc">
       积分值：<text>{{qrcode.score}}</text>

@@ -1,5 +1,5 @@
 // pages/showCode/showCode.js
-import QR from '../../utils/qrcode.js'
+// import QR from '../../utils/qrcode.js'
 const app = getApp()
 
 Page({
@@ -8,33 +8,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-    address: '',
-    imagePath: ''
+    address: ''
   },
 
-  createQrCode: function (content, canvasId, cavW, cavH) {
-    //调用插件中的draw方法，绘制二维码图片
-    QR.api.draw(content, canvasId, cavW, cavH);
-    this.canvasToTempImage(canvasId);
-  },
+  // createQrCode: function (content, canvasId, cavW, cavH) {
+  //   //调用插件中的draw方法，绘制二维码图片
+  //   QR.api.draw(content, canvasId, cavW, cavH);
+  //   this.canvasToTempImage(canvasId);
+  // },
 
-  //获取临时缓存图片路径，存入data中
-  canvasToTempImage: function (canvasId) {
-    let that = this;
-    wx.canvasToTempFilePath({
-      canvasId,   // 这里canvasId即之前创建的canvas-id
-      success: function (res) {
-        let tempFilePath = res.tempFilePath;
-        console.log(tempFilePath);
-        that.setData({       // 如果采用mpvue,即 this.imagePath = tempFilePath
-          imagePath: tempFilePath,
-        });
-      },
-      fail: function (res) {
-        console.log(res);
-      }
-    });
-  },
+  // //获取临时缓存图片路径，存入data中
+  // canvasToTempImage: function (canvasId) {
+  //   let that = this;
+  //   wx.canvasToTempFilePath({
+  //     canvasId,   // 这里canvasId即之前创建的canvas-id
+  //     success: function (res) {
+  //       let tempFilePath = res.tempFilePath;
+  //       console.log(tempFilePath);
+  //       that.setData({       // 如果采用mpvue,即 this.imagePath = tempFilePath
+  //         imagePath: tempFilePath,
+  //       });
+  //     },
+  //     fail: function (res) {
+  //       console.log(res);
+  //     }
+  //   });
+  // },
 
   setScores: function () {
     wx.navigateTo({
@@ -47,9 +46,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      address: `https://www.xpoint.pro/pay?sn=${app.globalData.sn}`
+      address: app.globalData.user && app.globalData.user.paycode
     })
-    this.createQrCode(this.data.address, 'mycanvas', 300, 300)
   },
 
   /**
@@ -63,7 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // this.createQrCode(this.data.address, 'mycanvas', 300, 300)
   },
 
   /**

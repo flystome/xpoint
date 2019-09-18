@@ -27,7 +27,11 @@
   margin: 30rpx 0;
 }
 .info	.qrcode {
-  width: 600rpx;
+  width: 500rpx;
   margin: 0 auto;
   text-align: center;
+}
+.qrcode image {
+  width: 500rpx;
+  height: 500rpx;
 }

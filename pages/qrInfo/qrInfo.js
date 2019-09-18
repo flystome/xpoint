@@ -12,45 +12,11 @@ Page({
     logo: ''
   },
 
-  createQrCode: function (content, canvasId, cavW, cavH) {
-    //调用插件中的draw方法，绘制二维码图片
-    QR.api.draw(content, canvasId, cavW, cavH);
-    this.canvasToTempImage(canvasId);
-  },
-
-  //获取临时缓存图片路径，存入data中
-  canvasToTempImage: function (canvasId) {
-    let that = this;
-    wx.canvasToTempFilePath({
-      canvasId,   // 这里canvasId即之前创建的canvas-id
-      success: function (res) {
-        let tempFilePath = res.tempFilePath;
-        that.setData({       // 如果采用mpvue,即 this.imagePath = tempFilePath
-          imagePath: tempFilePath,
-        });
-      },
-      fail: function (res) {
-        console.log(res);
-      }
-    });
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    let self = this
-    const eventChannel = this.getOpenerEventChannel()
-    eventChannel.on('qrcode', function (data) {
-      console.log(data)
-      let coin = data.data.coin_code
-      let item = app.globalData.assets.find(e => e.currency == coin)
-      let logo = item && item.logo
-      self.setData({
-        qrcode: data.data,
-        logo
-      })
-    })
+  onLoad: function () {
+    
   },
 
   /**
@@ -64,8 +30,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.createQrCode(`${app.globalData.url}/${this.data.qrcode.code}`, 'mycanvas', 300, 300)
-
+    let self = this
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('qrcode', function (data) {
+      console.log(data)
+      let coin = data.data.coin_code
+      let item = app.globalData.assets && app.globalData.assets.filter(e => e.currency == coin)[0]
+      let logo = item && item.logo
+      self.setData({
+        qrcode: data.data,
+        logo
+      })
+    })
   },
 
   /**
