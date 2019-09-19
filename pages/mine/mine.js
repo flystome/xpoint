@@ -18,6 +18,10 @@ Page({
   },
 
   bindApp: function () {
+    if (app.globalData.session) {
+      this.goLogin()
+      return ;
+    }
     if (app.globalData.user && app.globalData.user.bound) {
       wx.showToast({
         title: '您已经绑定账号了',
@@ -37,9 +41,8 @@ Page({
 
   getScore: function () {
     if (!app.globalData.session) {
-      wx.navigateTo({
-        url: '../login/login'
-      })
+      this.goLogin()
+      return;
     } else {
       wx.navigateTo({
         url: '../showCode/showCode'

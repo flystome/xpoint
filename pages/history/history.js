@@ -11,9 +11,7 @@ Page({
     total: "",
     page: 1,
     id: "",
-    shoppings: [
-      
-    ]
+    shoppings: []
   },
 
   goDetail: function(e) {
@@ -56,7 +54,7 @@ Page({
       },
       success(res) {
         var data = res.data
-        console.log(data)
+        // console.log(data)
         if (data.code == 200) {
          self.setData({
            shoppings: data.histories,
@@ -137,9 +135,6 @@ Page({
             shoppings: self.data.shoppings.concat(data.histories)
           })
         }
-      },
-      fail(err) {
-        console.error(err)
       },
       complete() {
         wx.hideLoading()

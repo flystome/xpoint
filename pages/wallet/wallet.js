@@ -77,12 +77,7 @@ Page({
             currency: data.assets[0] && data.assets[0].currency || 0,
             bound: data.bound
           })
-        } else {
-          // app.refreshSession()
         }
-      },
-      fail(err) {
-        console.error(err)
       },
       complete() {
         wx.hideLoading()

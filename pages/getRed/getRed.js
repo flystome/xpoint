@@ -43,7 +43,7 @@ Page({
     if (this.data.button == "领取红包") {
       this.getRed()
     } else if (this.data.button == "返回首页") {
-      wx.navigateTo({
+      wx.switchTab({
         url: '../index/index',
       })
     } else if (this.data.button == "红包详情") {
@@ -155,7 +155,7 @@ Page({
   },
 
   goHome () {
-    wx.redirectTo({
+    wx.switchTab({
       url: '../index/index',
     })
   },

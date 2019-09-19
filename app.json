@@ -30,6 +30,7 @@
     "pages/changeHis/changeHis",
     "pages/history/history",
     "pages/getRed/getRed",
+    "pages/red/red",
     "pages/share/share",
     "pages/redList/redList",
     "pages/login/login",

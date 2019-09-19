@@ -117,7 +117,6 @@ Page({
     let logo = this.data.assets.filter(e => {
       return e.currency == curCoin
     })[0].logo
-    console.log(this.data.assets, curCoin)
 
     this.setData({
       product: item,

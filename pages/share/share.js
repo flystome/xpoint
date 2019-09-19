@@ -13,11 +13,8 @@ Page({
   },
 
   goHome() {
-    // wx.redirectTo({
-    //   url: '../index/index',
-    // })
-    wx.navigateBack({
-      delta: 2
+    wx.switchTab({
+      url: '../index/index'
     })
   },
 

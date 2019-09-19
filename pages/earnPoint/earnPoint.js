@@ -85,7 +85,7 @@ Page({
 
   getScore: function () {
     if (this.data.text == "回到首页") {
-      wx.redirectTo({
+      wx.switchTab({
         url: '../index/index',
       })
       return
@@ -106,7 +106,7 @@ Page({
             content: `获得${self.data.shoppingPoints}${self.data.currency.toUpperCase()}`,
             showCancel: false,
             complete() {
-              wx.redirectTo({
+              wx.switchTab({
                 url: '../index/index',
               })
             }
@@ -118,7 +118,7 @@ Page({
             confirmText: '去首页',
             showCancel: false,
             complete() {
-              wx.redirectTo({
+              wx.switchTab({
                 url: '../index/index',
               })
             }
@@ -130,7 +130,7 @@ Page({
             confirmText: '去首页',
             showCancel: false,
             complete() {
-              wx.redirectTo({
+              wx.switchTab({
                 url: '../index/index',
               })
             }

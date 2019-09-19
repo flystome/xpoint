@@ -16,7 +16,7 @@
   color: #5E6A88;
   font-size: 32rpx;
   float: left;
-  width: 168rpx;
+  width: 200rpx;
   text-align: center;
 }
 .header view.cur text {
