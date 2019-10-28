@@ -147,8 +147,8 @@ Page({
       data: {
         session: app.globalData.session,
         currency: self.data.id,
-        volume: amount,
-        share: ''+share,
+        volume: '' + amount,
+        share: '' + share,
         type: type,
         formId: e.detail.formId,
         bless: self.data.bless || '恭喜发财，大吉大利！'
